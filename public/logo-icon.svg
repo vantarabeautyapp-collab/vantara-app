@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8C97D"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#B8912A"/>
+    </linearGradient>
+    <linearGradient id="goldR" x1="200" y1="0" x2="0" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8C97D"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="100" cy="80" r="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1C1C14"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+
+  <!-- Outer decorative ring -->
+  <circle cx="100" cy="100" r="93" stroke="url(#gold)" stroke-width="1.2" opacity="0.9"/>
+  <!-- Inner decorative ring -->
+  <circle cx="100" cy="100" r="87" stroke="url(#gold)" stroke-width="0.5" opacity="0.35"/>
+
+  <!-- African-inspired diamond accents at cardinal points (Adinkra-style) -->
+  <!-- Top -->
+  <path d="M100 10 L104.5 17 L100 24 L95.5 17 Z" fill="url(#gold)" opacity="0.9"/>
+  <!-- Bottom -->
+  <path d="M100 190 L104.5 183 L100 176 L95.5 183 Z" fill="url(#gold)" opacity="0.9"/>
+  <!-- Left -->
+  <path d="M10 100 L17 95.5 L24 100 L17 104.5 Z" fill="url(#gold)" opacity="0.9"/>
+  <!-- Right -->
+  <path d="M190 100 L183 95.5 L176 100 L183 104.5 Z" fill="url(#gold)" opacity="0.9"/>
+  <!-- Diagonal mini dots -->
+  <circle cx="34" cy="34" r="2" fill="url(#gold)" opacity="0.4"/>
+  <circle cx="166" cy="34" r="2" fill="url(#gold)" opacity="0.4"/>
+  <circle cx="34" cy="166" r="2" fill="url(#gold)" opacity="0.4"/>
+  <circle cx="166" cy="166" r="2" fill="url(#gold)" opacity="0.4"/>
+
+  <!-- ========= SCISSORS MARK ========= -->
+
+  <!-- Upper blade — sweeping from handle to tip -->
+  <!-- Blade body (thick tapered path) -->
+  <path d="M56 68 C72 68 90 78 100 100 C112 80 132 55 158 44"
+        stroke="url(#gold)" stroke-width="5.5" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- Upper blade tip arrow -->
+  <path d="M155 42 L163 42 L159 50 Z" fill="url(#gold)"/>
+
+  <!-- Lower blade — mirror curve -->
+  <path d="M56 132 C72 132 90 122 100 100 C112 120 132 145 158 156"
+        stroke="url(#goldR)" stroke-width="5.5" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- Lower blade tip arrow -->
+  <path d="M155 158 L163 158 L159 150 Z" fill="url(#goldR)"/>
+
+  <!-- Upper handle ring -->
+  <circle cx="44" cy="68" r="16" stroke="url(#gold)" stroke-width="4.5"/>
+  <circle cx="44" cy="68" r="6" fill="url(#gold)" opacity="0.15"/>
+  <!-- Upper handle inner detail -->
+  <circle cx="44" cy="68" r="3" fill="url(#gold)" opacity="0.5"/>
+
+  <!-- Lower handle ring -->
+  <circle cx="44" cy="132" r="16" stroke="url(#goldR)" stroke-width="4.5"/>
+  <circle cx="44" cy="132" r="6" fill="url(#goldR)" opacity="0.15"/>
+  <!-- Lower handle inner detail -->
+  <circle cx="44" cy="132" r="3" fill="url(#goldR)" opacity="0.5"/>
+
+  <!-- Pivot screw / center ornament -->
+  <circle cx="100" cy="100" r="8" fill="url(#gold)"/>
+  <circle cx="100" cy="100" r="4.5" fill="#0A0A0A"/>
+  <circle cx="100" cy="100" r="1.5" fill="url(#gold)" opacity="0.7"/>
+
+  <!-- Fine decorative lines flanking handles (Adinkra kente border echo) -->
+  <line x1="26" y1="62" x2="16" y2="58" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+  <line x1="26" y1="68" x2="14" y2="68" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+  <line x1="26" y1="74" x2="16" y2="78" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+  <line x1="26" y1="126" x2="16" y2="122" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+  <line x1="26" y1="132" x2="14" y2="132" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+  <line x1="26" y1="138" x2="16" y2="142" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+</svg>

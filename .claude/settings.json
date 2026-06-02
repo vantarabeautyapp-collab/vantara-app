@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s *)",
+      "Bash(until curl *)",
+      "mcp__Claude_Preview__preview_logs",
+      "mcp__Claude_Preview__preview_console_logs",
+      "mcp__Claude_Preview__preview_snapshot",
+      "mcp__Claude_Preview__preview_list",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(npm run build *)",
+      "Bash(npm run start *)",
+      "Bash(npm run dev *)",
+      "Bash(npm install *)",
+      "Bash(npm install)"
+    ]
+  }
+}
