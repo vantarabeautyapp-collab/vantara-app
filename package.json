@@ -37,7 +37,7 @@
     "framer-motion": "^11.3.19",
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.400.0",
-    "next": "14.2.28",
+    "next": "^14.2.35",
     "posthog-js": "^1.378.1",
     "react": "^18",
     "react-dom": "^18",
@@ -53,7 +53,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.28",
+    "eslint-config-next": "^14.2.35",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
