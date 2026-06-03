@@ -1,19 +1,15 @@
 # Nixpacks build config for Railway
-# Locks Node version and ensures all dependencies are installed
-
-[variables]
-NODE_VERSION = "20"
-NPM_CONFIG_PRODUCTION = "false"
+# Locks Node 20, installs ALL deps (including types), allocates build memory
 
 [phases.setup]
 nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = ["npm ci --include=dev"]
 
 [phases.build]
 cmds = [
-  "node --max-old-space-size=4096 node_modules/.bin/next build",
+  "npm run build",
   "node scripts/copy-standalone.js"
 ]
 
