@@ -1,17 +1,12 @@
 /** @type {import('next').NextConfig} */
 const isCapacitorBuild = process.env.NEXT_EXPORT === 'true'
-// Use standalone for ANY production build (Railway sets RAILWAY_ENVIRONMENT,
-// but standalone also works for other deployments via NODE_ENV=production)
-const isProduction = process.env.NODE_ENV === 'production' || !!process.env.RAILWAY_ENVIRONMENT
 
 const nextConfig = {
   swcMinify: false,
 
-  // Standalone = lean deployable bundle. Required for Railway.
-  // Capacitor needs export (static). Dev has no output restriction.
-  output: isCapacitorBuild ? 'export' : isProduction ? 'standalone' : undefined,
-
-  ...(isCapacitorBuild ? { trailingSlash: true } : {}),
+  // Static export only for Capacitor mobile builds.
+  // Railway uses `next start` (no standalone needed).
+  ...(isCapacitorBuild ? { output: 'export', trailingSlash: true } : {}),
 
   images: {
     unoptimized: true,
