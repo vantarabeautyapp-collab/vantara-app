@@ -1,5 +1,5 @@
 # Nixpacks build config for Railway
-# Locks Node 20, installs ALL deps (including types), allocates build memory
+# Locks Node 20, installs ALL deps, binds to 0.0.0.0 for Railway networking
 
 [phases.setup]
 nixPkgs = ["nodejs_20"]
@@ -14,4 +14,4 @@ cmds = [
 ]
 
 [start]
-cmd = "node .next/standalone/server.js"
+cmd = "HOSTNAME=0.0.0.0 node .next/standalone/server.js"
