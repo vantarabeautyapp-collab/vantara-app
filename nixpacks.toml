@@ -1,0 +1,21 @@
+# Nixpacks build config for Railway
+# Locks Node version and ensures all dependencies are installed
+
+[variables]
+NODE_VERSION = "20"
+NPM_CONFIG_PRODUCTION = "false"
+
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = [
+  "node --max-old-space-size=4096 node_modules/.bin/next build",
+  "node scripts/copy-standalone.js"
+]
+
+[start]
+cmd = "node .next/standalone/server.js"
