@@ -1,24 +1,36 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Eye, EyeOff, ArrowRight, AlertCircle } from 'lucide-react'
-import Logo, { LogoIcon } from '@/components/Logo'
+import Logo from '@/components/Logo'
 
-export default function LoginPage() {
+// ─── Small component that reads searchParams (must be inside Suspense) ────────
+function OAuthErrorBanner() {
   const searchParams = useSearchParams()
   const oauthError   = searchParams.get('error')
 
-  const [showPassword, setShowPassword] = useState(false)
-  const [role, setRole]           = useState<'customer' | 'business'>('customer')
-  const [email, setEmail]         = useState('')
-  const [password, setPassword]   = useState('')
-  const [error, setError]         = useState('')
-  const [loading, setLoading]     = useState(false)
+  if (!oauthError) return null
+
+  return (
+    <div role="alert" className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm mb-4">
+      <AlertCircle size={15} className="shrink-0" aria-hidden />
+      Google sign-in failed. Please try again or use email below.
+    </div>
+  )
+}
+
+// ─── Main login form ──────────────────────────────────────────────────────────
+function LoginForm() {
+  const [showPassword,  setShowPassword]  = useState(false)
+  const [role,          setRole]          = useState<'customer' | 'business'>('customer')
+  const [email,         setEmail]         = useState('')
+  const [password,      setPassword]      = useState('')
+  const [error,         setError]         = useState('')
+  const [loading,       setLoading]       = useState(false)
   const [googleLoading, setGoogleLoading] = useState(false)
 
-  // ── Email/password sign-in ─────────────────────────────────────────────────
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError('')
@@ -42,10 +54,8 @@ export default function LoginPage() {
     }
   }
 
-  // ── Google OAuth ───────────────────────────────────────────────────────────
   function handleGoogleSignIn() {
     setGoogleLoading(true)
-    // Redirect to our Google OAuth initiation route
     window.location.href = `/api/auth/google?role=${role}`
   }
 
@@ -146,7 +156,7 @@ export default function LoginPage() {
           </button>
 
           {/* Divider */}
-          <div className="relative py-3 mb-4">
+          <div className="relative py-3 mb-2">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-border" />
             </div>
@@ -155,13 +165,10 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Error from URL (e.g. oauth failure) */}
-          {oauthError && (
-            <div role="alert" className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm mb-4">
-              <AlertCircle size={15} className="shrink-0" aria-hidden />
-              Google sign-in failed. Please try again or use email below.
-            </div>
-          )}
+          {/* OAuth error banner — inside Suspense so useSearchParams is safe */}
+          <Suspense fallback={null}>
+            <OAuthErrorBanner />
+          </Suspense>
 
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             <div>
@@ -253,4 +260,11 @@ export default function LoginPage() {
       </main>
     </div>
   )
+}
+
+// ─── Page export — Next.js 14 requires the page itself to NOT call
+//     useSearchParams() at top level. LoginForm handles that internally
+//     with its own Suspense boundary around <OAuthErrorBanner />.
+export default function LoginPage() {
+  return <LoginForm />
 }

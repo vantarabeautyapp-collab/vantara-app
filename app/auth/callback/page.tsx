@@ -1,16 +1,23 @@
 'use client'
 
-/**
- * /auth/callback
- * Receives the OAuth handoff cookies set by /api/auth/google/callback,
- * moves them to localStorage (matching the existing email/password auth flow),
- * clears the cookies, and redirects to the final destination.
- */
-
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import Logo, { LogoIcon } from '@/components/Logo'
+import { LogoIcon } from '@/components/Logo'
 
+// ─── Spinner shown while params resolve ──────────────────────────────────────
+function Spinner() {
+  return (
+    <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center gap-6">
+      <LogoIcon size={40} />
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin" />
+        <p className="text-text-muted text-sm">Signing you in&hellip;</p>
+      </div>
+    </div>
+  )
+}
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null
   const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`))
@@ -21,7 +28,8 @@ function deleteCookie(name: string) {
   document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`
 }
 
-export default function OAuthCallbackPage() {
+// ─── Inner component (uses useSearchParams) ───────────────────────────────────
+function CallbackContent() {
   const router      = useRouter()
   const params      = useSearchParams()
   const destination = params.get('to') ?? '/home'
@@ -35,7 +43,7 @@ export default function OAuthCallbackPage() {
       return
     }
 
-    // Persist to localStorage (existing auth mechanism)
+    // Persist to localStorage — matches existing email/password auth flow
     localStorage.setItem('vt_token', token)
     localStorage.setItem('vt_user',  userJson)
 
@@ -43,17 +51,17 @@ export default function OAuthCallbackPage() {
     deleteCookie('vt_oauth_token')
     deleteCookie('vt_oauth_user')
 
-    // Navigate to destination
     router.replace(destination)
   }, [destination, router])
 
+  return <Spinner />
+}
+
+// ─── Page shell — Suspense wrapper required by Next.js 14 ────────────────────
+export default function OAuthCallbackPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center gap-6">
-      <LogoIcon size={40} />
-      <div className="flex flex-col items-center gap-3">
-        <div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin" />
-        <p className="text-text-muted text-sm">Signing you in&hellip;</p>
-      </div>
-    </div>
+    <Suspense fallback={<Spinner />}>
+      <CallbackContent />
+    </Suspense>
   )
 }
