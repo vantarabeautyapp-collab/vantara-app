@@ -111,17 +111,19 @@ export function middleware(req: NextRequest) {
   const convexSiteUrl = process.env.NEXT_PUBLIC_CONVEX_SITE_URL ?? ''
   const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL ?? ''
 
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ?? ''
+
   const csp = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://app.termly.io`,
+    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://app.termly.io https://www.googletagmanager.com https://www.google-analytics.com`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
-    `img-src 'self' data: blob: https://images.unsplash.com https://randomuser.me ${convexUrl}`,
-    `connect-src 'self' ${convexUrl} ${convexSiteUrl} https://app.posthog.com https://api.linear.app https://nominatim.openstreetmap.org`,
-    "frame-src https://js.stripe.com https://hooks.stripe.com",
+    `img-src 'self' data: blob: https://images.unsplash.com https://randomuser.me https://lh3.googleusercontent.com https://www.google-analytics.com ${convexUrl}`,
+    `connect-src 'self' ${convexUrl} ${convexSiteUrl} https://app.posthog.com https://api.linear.app https://nominatim.openstreetmap.org https://accounts.google.com https://oauth2.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://api.flutterwave.com`,
+    "frame-src https://js.stripe.com https://hooks.stripe.com https://accounts.google.com",
     "frame-ancestors 'none'",
     "base-uri 'self'",
-    "form-action 'self'",
+    "form-action 'self' https://accounts.google.com",
     "upgrade-insecure-requests",
   ].filter(Boolean).join('; ')
 

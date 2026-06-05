@@ -762,8 +762,15 @@ export default function LandingPage() {
             <div>
               <div className="font-semibold text-text-primary text-sm mb-4">Company</div>
               <ul className="space-y-2.5 text-sm text-text-muted">
-                {['About Us', 'Careers', 'Press', 'Contact', 'Privacy Policy', 'Terms of Service'].map(item => (
-                  <li key={item}><a href="#" className="hover:text-text-secondary transition-colors">{item}</a></li>
+                {[
+                  { label: 'About Us',         href: '#' },
+                  { label: 'Careers',          href: '#' },
+                  { label: 'Press',            href: '#' },
+                  { label: 'Contact',          href: 'mailto:hello@vantara.com' },
+                  { label: 'Privacy Policy',   href: '/privacy-policy' },
+                  { label: 'Terms of Service', href: '/terms' },
+                ].map(item => (
+                  <li key={item.label}><Link href={item.href} className="hover:text-text-secondary transition-colors">{item.label}</Link></li>
                 ))}
               </ul>
             </div>
