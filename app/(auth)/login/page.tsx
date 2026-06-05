@@ -1,12 +1,15 @@
 'use client'
 
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Eye, EyeOff, ArrowRight, AlertCircle } from 'lucide-react'
 import Logo, { LogoIcon } from '@/components/Logo'
 
 export default function LoginPage() {
+  const searchParams = useSearchParams()
+  const oauthError   = searchParams.get('error')
+
   const [showPassword, setShowPassword] = useState(false)
   const [role, setRole]           = useState<'customer' | 'business'>('customer')
   const [email, setEmail]         = useState('')
@@ -153,10 +156,10 @@ export default function LoginPage() {
           </div>
 
           {/* Error from URL (e.g. oauth failure) */}
-          {typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('error') && (
-            <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm mb-4">
-              <AlertCircle size={15} className="shrink-0" />
-              Google sign-in failed. Please try again or use email.
+          {oauthError && (
+            <div role="alert" className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm mb-4">
+              <AlertCircle size={15} className="shrink-0" aria-hidden />
+              Google sign-in failed. Please try again or use email below.
             </div>
           )}
 
