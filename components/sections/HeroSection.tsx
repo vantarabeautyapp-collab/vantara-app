@@ -7,17 +7,18 @@ import { CITIES } from '@/lib/mock-data'
 
 const STATS = [
   { value: '12,400+', label: 'Verified Professionals' },
-  { value: '8,200+',  label: 'Bookings This Month'   },
-  { value: '3',       label: 'Cities Live'            },
-  { value: '4.8★',   label: 'Average Rating'         },
+  { value: '8,200+',  label: 'Bookings This Month'    },
+  { value: '5',       label: 'Countries'               },
+  { value: '4.8★',   label: 'Average Rating'          },
 ]
 
 const QUICK_TAGS = [
-  'Fades & Cuts',
-  'Braids & Weaves',
+  'Knotless Braids',
+  'Clean Fades',
   'Bridal Makeup',
   'Gel Nails',
-  'Locs & Dreadlocks',
+  'Natural Locs',
+  'Skin Facials',
 ]
 
 export function HeroSection() {
@@ -27,44 +28,44 @@ export function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden bg-page transition-colors duration-300"
-      aria-label="Hero — search for beauty services"
+      aria-label="Hero — discover Africa's finest beauty professionals"
     >
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(ellipse, rgba(201,168,76,0.4) 0%, transparent 70%)' }}
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] rounded-full opacity-15"
+          style={{ background: 'radial-gradient(ellipse, rgba(201,168,76,0.5) 0%, transparent 70%)' }}
         />
         <div
-          className="absolute top-1/4 left-1/4 w-[300px] h-[300px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(ellipse, rgba(26,122,74,0.6) 0%, transparent 70%)' }}
+          className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full opacity-8"
+          style={{ background: 'radial-gradient(ellipse, rgba(91,42,134,0.4) 0%, transparent 70%)' }}
         />
         <div
-          className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full opacity-10"
+          className="absolute bottom-1/4 right-1/4 w-[280px] h-[280px] rounded-full opacity-10"
           style={{ background: 'radial-gradient(ellipse, rgba(201,168,76,0.5) 0%, transparent 70%)' }}
         />
       </div>
 
       {/* Floating particles */}
-      {[...Array(12)].map((_, i) => (
+      {[...Array(14)].map((_, i) => (
         <div
           key={i}
           aria-hidden="true"
           className="particle animate-float"
           style={{
-            left:              `${10 + i * 8}%`,
-            top:               `${20 + (i % 4) * 20}%`,
-            animationDelay:    `${i * 0.5}s`,
-            animationDuration: `${5 + (i % 3)}s`,
-            opacity:           0.3 + (i % 3) * 0.1,
+            left:              `${8 + i * 7}%`,
+            top:               `${15 + (i % 5) * 18}%`,
+            animationDelay:    `${i * 0.4}s`,
+            animationDuration: `${4 + (i % 4)}s`,
+            opacity:           0.2 + (i % 4) * 0.1,
           }}
         />
       ))}
 
-      {/* Launch badge */}
+      {/* Live badge */}
       <div className="animate-fade-up mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase glass-card-gold">
         <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse-gold" aria-hidden="true" />
-        <span className="text-gold">Now Live in Nairobi, Kampala &amp; Dar es Salaam</span>
+        <span className="text-gold">Live in Nairobi · Kampala · Dar es Salaam · Lagos · Accra</span>
       </div>
 
       {/* Headline */}
@@ -75,8 +76,11 @@ export function HeroSection() {
           <span className="text-text-primary">Glow.</span>
         </h1>
         <p className="text-text-secondary text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed text-balance">
-          Find and instantly book verified barbers, salons, makeup artists, and beauty professionals near you.
-          Earn rewards with every appointment.
+          The marketplace that connects Africa&apos;s finest beauty and grooming professionals
+          with the people who&apos;ve been searching for them.
+        </p>
+        <p className="text-text-muted text-sm max-w-xl mx-auto mt-3 leading-relaxed">
+          Every booking earns rewards. Every professional gets discovered. Every visit builds community.
         </p>
       </div>
 
@@ -87,8 +91,8 @@ export function HeroSection() {
             <Search size={18} className="text-gold shrink-0" aria-hidden="true" />
             <input
               type="search"
-              placeholder="Search barbers, salons, nail studios..."
-              aria-label="Search beauty services"
+              placeholder="Barbers, salons, makeup artists, nail studios…"
+              aria-label="Search beauty professionals and services"
               className="flex-1 bg-transparent text-text-primary placeholder-text-muted text-sm outline-none"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
@@ -113,7 +117,7 @@ export function HeroSection() {
           <Link
             href={`/search?q=${encodeURIComponent(searchQuery)}&city=${selectedCity}`}
             className="btn-gold rounded-xl px-6 py-3 text-sm font-semibold shrink-0"
-            aria-label="Search beauty services"
+            aria-label="Search beauty professionals"
           >
             Search
           </Link>
@@ -143,6 +147,16 @@ export function HeroSection() {
             </div>
           ))}
         </dl>
+      </div>
+
+      {/* Dual CTAs */}
+      <div className="flex flex-col sm:flex-row items-center gap-3 mt-8 animate-fade-up delay-400">
+        <Link href="/register" className="btn-gold rounded-xl px-6 py-3 text-sm font-semibold">
+          Get Started Free
+        </Link>
+        <Link href="/register?role=business" className="btn-ghost rounded-xl px-6 py-3 text-sm font-medium text-text-secondary hover:text-gold transition-colors">
+          List Your Business →
+        </Link>
       </div>
 
       {/* Scroll cue */}

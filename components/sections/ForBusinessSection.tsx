@@ -3,17 +3,18 @@ import { TrendingUp, CheckCircle, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const PERKS = [
-  'Free listing with premium upgrade options',
-  'Real-time booking calendar & notifications',
-  'Analytics dashboard with revenue insights',
-  'Staff management & scheduling tools',
-  'Promotional tools & loyalty programs',
+  'Free listing — get discovered today at no cost',
+  'Real-time booking calendar with instant notifications',
+  'Analytics dashboard: revenue, bookings, and customer insights',
+  'Staff management, scheduling, and service menus',
+  'Built-in promotions, loyalty programs, and happy hour tools',
+  'Verified badge — customers trust your business more',
 ]
 
 const STATS = [
-  { label: 'Monthly Bookings', value: '+127%',      sub: 'after joining Vantara',         color: 'text-gold'          },
-  { label: 'New Customers',    value: '68%',         sub: 'of bookings are new clients',   color: 'text-emerald-light' },
-  { label: 'Revenue Growth',   value: '+KSh 48K',   sub: 'average monthly increase',      color: 'text-purple-400'   },
+  { label: 'More Bookings',     value: '+127%',    sub: 'average increase after joining Vantara',  color: 'text-gold'          },
+  { label: 'New Customers',     value: '68%',       sub: 'of each business\'s bookings are new clients', color: 'text-emerald-light' },
+  { label: 'Revenue Growth',    value: '+KSh 48K', sub: 'average monthly increase per business',   color: 'text-purple-400'   },
 ]
 
 export function ForBusinessSection() {
@@ -33,17 +34,21 @@ export function ForBusinessSection() {
                 id="business-heading"
                 className="font-playfair text-3xl sm:text-4xl font-bold text-text-primary mb-4"
               >
-                Grow Your Beauty Business
+                Lead Africa&apos;s Beauty Revolution
               </h2>
+              <p className="text-text-secondary mb-3 leading-relaxed">
+                Africa&apos;s beauty and grooming industry is transforming — and the businesses that build
+                their digital presence now will be the ones that lead it.
+              </p>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                List your salon or barbershop and reach thousands of new customers in your area. Get verified,
-                build your brand, and manage everything from one dashboard.
+                Vantara gives independent professionals and growing businesses the visibility, tools,
+                and community to compete — and win — in their city and beyond.
               </p>
 
               <ul className="space-y-3 mb-8" aria-label="Business benefits">
                 {PERKS.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-text-secondary">
-                    <CheckCircle size={16} className="text-emerald-light mt-0.5 shrink-0" aria-hidden="true" />
+                    <CheckCircle size={15} className="text-emerald-light mt-0.5 shrink-0" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
@@ -66,16 +71,24 @@ export function ForBusinessSection() {
             {/* Right — stats */}
             <div className="space-y-3" aria-label="Vantara business results">
               {STATS.map((stat, i) => (
-                <div key={i} className="glass-card rounded-xl p-4 flex items-center gap-4">
-                  <div className={cn('font-playfair text-2xl font-bold', stat.color)} aria-label={stat.value}>
+                <div key={i} className="glass-card rounded-xl p-5 flex items-center gap-4">
+                  <div className={cn('font-playfair text-3xl font-bold shrink-0', stat.color)} aria-label={stat.value}>
                     {stat.value}
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-text-primary">{stat.label}</div>
-                    <div className="text-xs text-text-muted">{stat.sub}</div>
+                    <div className="text-sm font-semibold text-text-primary">{stat.label}</div>
+                    <div className="text-xs text-text-muted mt-0.5">{stat.sub}</div>
                   </div>
                 </div>
               ))}
+
+              {/* Trust line */}
+              <div className="rounded-xl p-4 text-center" style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.15)' }}>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  &ldquo;Joining Vantara was the single best business decision I made this year.&rdquo;
+                </p>
+                <p className="text-xs text-gold mt-1 font-medium">— Fatima M., Salon Owner, Dar es Salaam</p>
+              </div>
             </div>
 
           </div>

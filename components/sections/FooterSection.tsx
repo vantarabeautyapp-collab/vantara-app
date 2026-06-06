@@ -11,7 +11,7 @@ const SOCIAL = [
 
 const CUSTOMER_LINKS = [
   { label: 'How it Works',    href: '#'       },
-  { label: 'Find a Salon',    href: '/search' },
+  { label: 'Find a Professional', href: '/search' },
   { label: 'Beauty Passport', href: '#'       },
   { label: 'Gift Cards',      href: '#'       },
   { label: 'Mobile App',      href: '#'       },
@@ -26,17 +26,26 @@ const BUSINESS_LINKS = [
 ]
 
 const COMPANY_LINKS = [
-  { label: 'About Us',          href: '#'                   },
-  { label: 'Careers',           href: '#'                   },
-  { label: 'Press',             href: '#'                   },
-  { label: 'Contact',           href: 'mailto:hello@vantara.com' },
-  { label: 'Privacy Policy',    href: '/privacy-policy'     },
-  { label: 'Terms of Service',  href: '/terms'              },
+  { label: 'About Vantara',     href: '/about'                  },
+  { label: 'Our Story',         href: '/about#story'            },
+  { label: 'Careers',           href: '#'                       },
+  { label: 'Press',             href: '#'                       },
+  { label: 'Contact',           href: 'mailto:hello@vantara.com'},
+  { label: 'Privacy Policy',    href: '/privacy-policy'         },
+  { label: 'Terms of Service',  href: '/terms'                  },
+]
+
+const COUNTRIES = [
+  { flag: '🇰🇪', name: 'Kenya'     },
+  { flag: '🇺🇬', name: 'Uganda'    },
+  { flag: '🇹🇿', name: 'Tanzania'  },
+  { flag: '🇳🇬', name: 'Nigeria'   },
+  { flag: '🇬🇭', name: 'Ghana'     },
 ]
 
 export function FooterSection() {
   return (
-    <footer className="border-t border-border py-12 px-4">
+    <footer className="border-t border-border py-14 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
 
@@ -45,9 +54,15 @@ export function FooterSection() {
             <div className="flex items-center mb-4">
               <Logo size="sm" usePng />
             </div>
-            <p className="text-sm text-text-muted leading-relaxed mb-4">
-              Africa&apos;s Beauty &amp; Grooming Marketplace. Discover, book, and glow with verified professionals
-              near you.
+            <p className="text-sm text-text-muted leading-relaxed mb-2">
+              Africa&apos;s Beauty &amp; Grooming Marketplace.
+            </p>
+            <p className="text-xs text-text-muted leading-relaxed mb-5">
+              We connect talented professionals with the customers who need them —
+              building community, trust, and confidence across the continent.
+            </p>
+            <p className="text-xs text-text-muted italic mb-5">
+              &ldquo;To connect Africa with trusted beauty and grooming experiences through technology.&rdquo;
             </p>
             <nav aria-label="Social media links">
               <div className="flex gap-3">
@@ -106,12 +121,15 @@ export function FooterSection() {
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-text-muted">
-            © 2026 Vantara. All rights reserved. Built with love for Africa.
+            © 2026 Vantara. All rights reserved. Built with purpose for Africa.
           </p>
-          <div className="flex items-center gap-4 text-xs text-text-muted" aria-label="Countries supported">
-            <span>🇰🇪 Kenya</span>
-            <span>🇺🇬 Uganda</span>
-            <span>🇹🇿 Tanzania</span>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-text-muted" aria-label="Countries where Vantara is available">
+            {COUNTRIES.map(c => (
+              <span key={c.name} className="flex items-center gap-1">
+                <span aria-hidden="true">{c.flag}</span>
+                {c.name}
+              </span>
+            ))}
           </div>
         </div>
       </div>

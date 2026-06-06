@@ -9,6 +9,7 @@ import { NavbarSection }      from '@/components/sections/NavbarSection'
 import { HeroSection }        from '@/components/sections/HeroSection'
 import { CategoriesSection }  from '@/components/sections/CategoriesSection'
 import { HowItWorksSection }  from '@/components/sections/HowItWorksSection'
+import { ManifestoSection }   from '@/components/sections/ManifestoSection'
 import { FeaturedSection }    from '@/components/sections/FeaturedSection'
 import { FeaturesSection }    from '@/components/sections/FeaturesSection'
 import { PassportSection }    from '@/components/sections/PassportSection'
@@ -25,6 +26,7 @@ export default function LandingPage() {
       <HeroSection />
       <CategoriesSection />
       <HowItWorksSection />
+      <ManifestoSection />
       <FeaturedSection />
       <FeaturesSection />
       <PassportSection />

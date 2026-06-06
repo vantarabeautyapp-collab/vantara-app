@@ -34,11 +34,11 @@ export function PassportSection() {
                 id="passport-heading"
                 className="font-playfair text-3xl sm:text-4xl font-bold text-text-primary mb-4"
               >
-                Every Visit Earns You More
+                Your Beauty Journey, Rewarded
               </h2>
               <p className="text-text-secondary text-base leading-relaxed mb-6">
-                Earn loyalty points on every booking, review, and referral. Unlock discounts, free services, and
-                exclusive VIP access as you level up from Bronze to Platinum.
+                Every booking, review, and referral earns Beauty Points. Level up from Bronze to Platinum
+                and unlock exclusive discounts, free services, and VIP access — because loyalty should mean something.
               </p>
 
               {/* Tier badges */}
@@ -108,7 +108,7 @@ export function PassportSection() {
                     </div>
                   </div>
 
-                  <div className="text-xs text-text-muted">Amara Okonkwo · Member since 2025</div>
+                  <div className="text-xs text-text-muted">Your Name · Member since 2026</div>
                 </div>
               </div>
             </div>
