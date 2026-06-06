@@ -26,7 +26,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden bg-page transition-colors duration-300"
       aria-label="Hero — search for beauty services"
     >
       {/* Background glows */}

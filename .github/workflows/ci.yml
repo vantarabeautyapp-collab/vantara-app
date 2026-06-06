@@ -1,0 +1,99 @@
+name: CI — Build · Lint · Type Check
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '20'
+  # Stub env vars so the build doesn't throw on missing secrets
+  JWT_SECRET: 'ci-build-secret-not-real-32-chars-min'
+  NEXT_PUBLIC_APP_URL: 'http://localhost:3005'
+  NEXT_PUBLIC_PRODUCTION_URL: 'https://vantarafrique.com'
+  NEXT_PUBLIC_CONVEX_URL: ''
+  NEXT_PUBLIC_CONVEX_SITE_URL: ''
+  CONVEX_DEPLOYMENT: ''
+
+jobs:
+  build:
+    name: Build & Type Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npx next lint --max-warnings 0 || true
+
+      - name: Build (production)
+        run: npx next build
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+
+  dependency-audit:
+    name: Dependency Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: npm audit (high/critical only)
+        run: npm audit --audit-level=high
+        continue-on-error: true   # don't block CI on advisory; fix manually
+
+      - name: Check for known vulnerabilities (osv-scanner)
+        uses: google/osv-scanner-action@v1
+        with:
+          scan-args: |-
+            --lockfile=package-lock.json
+        continue-on-error: true
+
+  secret-scan:
+    name: Secret Scanning
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # scan full history
+
+      - name: Gitleaks — scan for exposed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true  # report but don't hard-block

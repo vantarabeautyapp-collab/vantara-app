@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Suspense }                 from 'react'
 import './globals.css'
+import { ThemeProvider }   from '@/components/ThemeProvider'
 import { ErrorBoundary }   from '@/components/ErrorBoundary'
 import { Analytics }       from '@/components/Analytics'
 import JsonLd, {
@@ -24,20 +25,15 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: dark)',  color: '#0A0A0A' },
-    { media: '(prefers-color-scheme: light)', color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: light)', color: '#FAFAF7' },
   ],
 }
 
-// ─── Default metadata (per-page can override with generateMetadata) ───────────
+// ─── Default metadata ─────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
-
-  title: {
-    default:  FULL_TITLE,
-    template: `%s | ${SITE_NAME}`,
-  },
-  description: DESC,
-
+  title:        { default: FULL_TITLE, template: `%s | ${SITE_NAME}` },
+  description:  DESC,
   keywords: [
     'salon booking Africa', 'barbershop Nairobi', 'hair salon Kenya',
     'beauty services Africa', 'book haircut online', 'makeup artist Nairobi',
@@ -46,12 +42,10 @@ export const metadata: Metadata = {
     'M-Pesa beauty booking', 'braiding Nairobi', 'locs Dar es Salaam',
     'beauty Lagos Nigeria', 'best barber Accra Ghana',
   ],
-
   authors:   [{ name: 'Vantara', url: BASE }],
   creator:   'Vantara',
   publisher: 'Vantara',
   category:  'beauty',
-
   robots: {
     index:  true,
     follow: true,
@@ -63,8 +57,6 @@ export const metadata: Metadata = {
       'max-snippet':       -1,
     },
   },
-
-  // ── Open Graph ──────────────────────────────────────────────────────────────
   openGraph: {
     type:            'website',
     locale:          'en_KE',
@@ -73,18 +65,8 @@ export const metadata: Metadata = {
     siteName:        SITE_NAME,
     title:           FULL_TITLE,
     description:     DESC,
-    images: [
-      {
-        url:    OG_IMAGE,
-        width:  1200,
-        height: 630,
-        alt:    `${SITE_NAME} — Africa's Beauty & Grooming Marketplace`,
-        type:   'image/png',
-      },
-    ],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: `${SITE_NAME} — Africa's Beauty & Grooming Marketplace`, type: 'image/png' }],
   },
-
-  // ── Twitter / X ─────────────────────────────────────────────────────────────
   twitter: {
     card:        'summary_large_image',
     title:       FULL_TITLE,
@@ -93,66 +75,61 @@ export const metadata: Metadata = {
     creator:     '@vantarafrique',
     images:      [OG_IMAGE],
   },
-
-  // ── Canonical + alternates ──────────────────────────────────────────────────
   alternates: {
     canonical: BASE,
-    languages: {
-      'en-KE': BASE,
-      'en-NG': BASE,
-      'en-GH': BASE,
-      'en-UG': BASE,
-      'en-TZ': BASE,
-    },
+    languages: { 'en-KE': BASE, 'en-NG': BASE, 'en-GH': BASE, 'en-UG': BASE, 'en-TZ': BASE },
   },
-
-  // ── Icons ───────────────────────────────────────────────────────────────────
   icons: {
-    icon:     [
-      { url: '/favicon.ico',                sizes: 'any' },
-      { url: '/icon-192.png',               sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png',               sizes: '512x512', type: 'image/png' },
-    ],
+    icon:     [{ url: '/favicon.ico', sizes: 'any' }, { url: '/icon-192.png', sizes: '192x192', type: 'image/png' }, { url: '/icon-512.png', sizes: '512x512', type: 'image/png' }],
     shortcut: '/favicon.ico',
     apple:    [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
-
-  // ── Manifest ────────────────────────────────────────────────────────────────
   manifest: '/manifest.json',
-
-  // ── Search engine verification ──────────────────────────────────────────────
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? undefined,
-    other: {
-      ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
-        ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
-        : {}),
-    },
+    other:  process.env.NEXT_PUBLIC_BING_VERIFICATION ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION } : {},
   },
-
-  // ── App metadata ────────────────────────────────────────────────────────────
   applicationName: SITE_NAME,
   referrer:        'origin-when-cross-origin',
-  formatDetection: {
-    email:     false,
-    address:   false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
 }
+
+// ─── Theme init script — runs before paint to prevent flash of wrong theme ────
+// Inlined as a string so Next.js doesn't transform it (must execute synchronously)
+const THEME_INIT = `
+(function(){
+  try {
+    var t = localStorage.getItem('vt_theme');
+    var preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    var theme = (t === 'light' || t === 'dark') ? t : preferred;
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
+  } catch(e) {}
+})();
+`
 
 // ─── Root Layout ─────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr">
+    // suppressHydrationWarning: the theme class is added by client JS — expected mismatch
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
-        {/* Preconnect to critical origins */}
-        <link rel="preconnect"    href="https://fonts.googleapis.com" />
-        <link rel="preconnect"    href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Critical: runs synchronously before paint — eliminates theme flash */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
 
-        {/* Google Fonts — Playfair Display + Inter — preload critical subsets */}
+        {/* Preconnect */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Google Fonts */}
         <link
-          rel="preload"
-          as="style"
+          rel="preload" as="style"
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
         />
         <link
@@ -160,29 +137,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
 
-        {/* Geo / local SEO meta */}
-        <meta name="geo.region"         content="KE"       />
-        <meta name="geo.placename"      content="Nairobi"  />
-        <meta name="ICBM"               content="-1.2921, 36.8219" />
-        <meta name="geo.position"       content="-1.2921;36.8219"  />
+        {/* Geo / local SEO */}
+        <meta name="geo.region"    content="KE"              />
+        <meta name="geo.placename" content="Nairobi"         />
+        <meta name="ICBM"          content="-1.2921, 36.8219"/>
+        <meta name="geo.position"  content="-1.2921;36.8219" />
       </head>
 
-      <body className="bg-[#0A0A0A] text-[#F0EDE8] antialiased">
-        <ErrorBoundary>
-          {/* Structured data — loaded on every page */}
-          <JsonLd schema={[
-            websiteSchema(),
-            organizationSchema(),
-            webApplicationSchema(),
-          ]} />
+      <body className="bg-page text-text-primary antialiased">
+        <ThemeProvider>
+          <ErrorBoundary>
+            <JsonLd schema={[websiteSchema(), organizationSchema(), webApplicationSchema()]} />
+            {children}
+          </ErrorBoundary>
 
-          {children}
-        </ErrorBoundary>
-
-        {/* Analytics — deferred, won't block render */}
-        <Suspense fallback={null}>
-          <Analytics />
-        </Suspense>
+          <Suspense fallback={null}>
+            <Analytics />
+          </Suspense>
+        </ThemeProvider>
       </body>
     </html>
   )
