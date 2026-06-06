@@ -8,8 +8,9 @@ import {
   Crown, CheckCircle, Shield, Zap, ChevronRight, Scissors
 } from 'lucide-react'
 import CustomerNav from '@/components/navigation/CustomerNav'
-import { BUSINESSES, CURRENT_USER, RECENT_APPOINTMENTS } from '@/lib/mock-data'
+import { BUSINESSES, RECENT_APPOINTMENTS } from '@/lib/mock-data'
 import { cn, formatCurrency, getStatusColor, getStatusLabel, timeAgo } from '@/lib/utils'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 const QUICK_CATEGORIES = [
   { id: 'barbershop', label: 'Barbers', emoji: '✂️' },
@@ -21,7 +22,11 @@ const QUICK_CATEGORIES = [
 ]
 
 export default function CustomerHomePage() {
-  const user = CURRENT_USER
+  const { user, loading } = useCurrentUser()
+
+  // AuthGuard in layout handles redirect; render nothing while loading
+  if (loading || !user) return null
+
   const openNow = BUSINESSES.filter(b => b.isOpen)
   const featured = BUSINESSES.filter(b => b.featured)
   const upcoming = RECENT_APPOINTMENTS.filter(a => a.status === 'confirmed' || a.status === 'pending')

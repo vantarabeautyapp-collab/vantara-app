@@ -104,12 +104,49 @@ function tooManyRequests(retryAfter: number) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+//  ROUTE PROTECTION
+//  Pages in these prefixes require an authenticated session (vt_access cookie).
+//  The cookie is set by /api/auth/login and cleared by /api/auth/logout.
+//  If missing → redirect to /login?from=<path>.
+//  Client-side <AuthGuard> provides a second layer of verification.
+// ─────────────────────────────────────────────────────────────────────────────
+const PROTECTED_PREFIXES = [
+  '/home',
+  '/profile',
+  '/rewards',
+  '/bookings',
+  '/booking',
+  '/notifications',
+  '/saved',
+  '/payments',
+  '/settings',
+  '/business',
+  '/admin',
+]
+
+function isProtectedPageRoute(pathname: string): boolean {
+  return PROTECTED_PREFIXES.some(
+    prefix => pathname === prefix || pathname.startsWith(prefix + '/'),
+  )
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 //  MIDDLEWARE
 // ─────────────────────────────────────────────────────────────────────────────
 export function middleware(req: NextRequest) {
   const { pathname, origin } = req.nextUrl
   const ip     = getClientIp(req)
   const method = req.method.toUpperCase()
+
+  // ── Route protection (page requests only) ───────────────────────────────
+  if (isProtectedPageRoute(pathname)) {
+    const accessToken = req.cookies.get('vt_access')
+    if (!accessToken) {
+      const loginUrl = new URL('/login', req.url)
+      loginUrl.searchParams.set('from', pathname)
+      return NextResponse.redirect(loginUrl)
+    }
+  }
 
   // ── CORS pre-flight ──────────────────────────────────────────────────────
   const requestOrigin = req.headers.get('origin') ?? ''

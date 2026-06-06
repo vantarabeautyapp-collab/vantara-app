@@ -7,8 +7,8 @@ import {
   MapPin, Phone, Mail, Crown, ChevronRight, Heart, Calendar
 } from 'lucide-react'
 import CustomerNav from '@/components/navigation/CustomerNav'
-import { CURRENT_USER } from '@/lib/mock-data'
 import { cn } from '@/lib/utils'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 const MENU_ITEMS = [
   { label: 'Saved Places', icon: Heart, href: '/saved', badge: '4' },
@@ -18,7 +18,10 @@ const MENU_ITEMS = [
 ]
 
 export default function ProfilePage() {
-  const user = CURRENT_USER
+  const { user, loading, clear } = useCurrentUser()
+
+  // AuthGuard in layout handles redirect; render nothing while loading
+  if (loading || !user) return null
 
   const tierColors: Record<string, { text: string; bg: string; border: string }> = {
     bronze: { text: 'text-amber-600', bg: 'bg-amber-600/15', border: 'border-amber-600/30' },
@@ -106,10 +109,17 @@ export default function ProfilePage() {
         </div>
 
         {/* Sign out */}
-        <Link href="/" className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl border border-red-500/20 bg-red-500/5 text-red-400 text-sm font-medium hover:bg-red-500/10 transition-colors">
+        <button
+          onClick={async () => {
+            try { await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }) } catch {}
+            clear()
+            window.location.href = '/'
+          }}
+          className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl border border-red-500/20 bg-red-500/5 text-red-400 text-sm font-medium hover:bg-red-500/10 transition-colors"
+        >
           <LogOut size={16} />
           Sign Out
-        </Link>
+        </button>
 
         <div className="text-center text-xs text-text-muted pb-2">
           Vantara v1.0.0 · Member since {user.joinedAt}

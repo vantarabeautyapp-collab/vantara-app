@@ -8,8 +8,9 @@ import {
   ChevronRight, CheckCircle, Copy, Lock
 } from 'lucide-react'
 import CustomerNav from '@/components/navigation/CustomerNav'
-import { CURRENT_USER, LOYALTY_REWARDS, RECENT_APPOINTMENTS } from '@/lib/mock-data'
+import { LOYALTY_REWARDS } from '@/lib/mock-data'
 import { cn } from '@/lib/utils'
+import { useCurrentUser } from '@/hooks/useCurrentUser'
 
 const TIERS = [
   { id: 'bronze', label: 'Bronze', min: 0, max: 999, color: 'text-amber-600', border: 'border-amber-600/40', bg: 'bg-amber-600/10', icon: '●' },
@@ -28,9 +29,15 @@ const POINT_HISTORY = [
 ]
 
 export default function RewardsPage() {
-  const user = CURRENT_USER
+  const { user, loading } = useCurrentUser()
   const [activeTab, setActiveTab] = useState<'rewards' | 'history' | 'referral'>('rewards')
   const [copiedCode, setCopiedCode] = useState(false)
+
+  // AuthGuard in layout handles redirect; render nothing while loading
+  if (loading || !user) return null
+
+  // Generate a referral code from the user's name + year (e.g. AMARA2026)
+  const referralCode = `${user.name.split(' ')[0].toUpperCase()}${new Date().getFullYear()}`
 
   const currentTier = TIERS.find(t => user.loyaltyPoints >= t.min && user.loyaltyPoints <= t.max) || TIERS[0]
   const nextTier = TIERS[TIERS.indexOf(currentTier) + 1]
@@ -39,7 +46,7 @@ export default function RewardsPage() {
     : 100
 
   function copyReferral() {
-    navigator.clipboard.writeText('AMARA2026')
+    navigator.clipboard.writeText(referralCode)
     setCopiedCode(true)
     setTimeout(() => setCopiedCode(false), 2000)
   }
@@ -254,7 +261,7 @@ export default function RewardsPage() {
               <h3 className="font-playfair font-bold text-xl text-text-primary mb-1">Share the Love</h3>
               <p className="text-sm text-text-muted mb-5">Refer friends and earn 200 points for every person who books their first appointment.</p>
               <div className="flex items-center gap-2 bg-surface-elevated rounded-xl border border-border p-3 mb-4">
-                <span className="flex-1 text-center font-bold text-gold tracking-widest text-lg">AMARA2026</span>
+                <span className="flex-1 text-center font-bold text-gold tracking-widest text-lg">{referralCode}</span>
                 <button
                   onClick={copyReferral}
                   className={cn(
