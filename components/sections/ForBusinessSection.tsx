@@ -83,7 +83,7 @@ export function ForBusinessSection() {
               ))}
 
               {/* Trust line */}
-              <div className="rounded-xl p-4 text-center" style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.15)' }}>
+              <div className="rounded-xl p-4 text-center" style={{ background: 'rgba(166,75,42,0.06)', border: '1px solid rgba(166,75,42,0.18)' }}>
                 <p className="text-xs text-text-muted leading-relaxed">
                   &ldquo;Joining Vantara was the single best business decision I made this year.&rdquo;
                 </p>

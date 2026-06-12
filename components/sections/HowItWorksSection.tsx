@@ -62,7 +62,7 @@ export function HowItWorksSection() {
                 <div
                   aria-hidden="true"
                   className="hidden sm:block absolute top-8 left-full w-full h-px z-10"
-                  style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.3), transparent)' }}
+                  style={{ background: 'linear-gradient(90deg, rgba(166,75,42,0.35), transparent)' }}
                 />
               )}
               <div className="glass-card rounded-2xl p-6 h-full">

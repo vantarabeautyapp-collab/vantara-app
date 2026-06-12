@@ -91,7 +91,7 @@ export function PricingSection() {
               {plan.highlight && (
                 <div
                   className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-black"
-                  style={{ background: 'linear-gradient(135deg, #C9A84C, #E8C97D)' }}
+                  style={{ background: 'linear-gradient(135deg, #A64B2A, #E07A2D)' }}
                   aria-label="Most Popular plan"
                 >
                   Most Popular

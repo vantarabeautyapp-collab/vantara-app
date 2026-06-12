@@ -3,125 +3,158 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   VANTARA DESIGN TOKENS
+   VANTARA AFRIQUE — DESIGN TOKENS
+   Modern African Premium Brand System
    All colour/surface values live here as CSS custom properties.
-   The `.light` class on <html> swaps to the light palette.
+   The `.light` class on <html> swaps to the light (sand) palette.
    Components reference these tokens — never hardcode hex in components.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── DARK MODE (default) ──────────────────────────────────────────────── */
+/* ── DARK MODE (default) — Deep Earth ────────────────────────────────────── */
 :root {
   color-scheme: dark;
 
-  /* Brand */
-  --color-gold:          #C9A84C;
-  --color-gold-light:    #E8C97D;
-  --color-gold-dim:      #8A6A28;
-  --color-purple:        #8B21A8;
-  --color-purple-light:  #B44FD4;
-  --color-purple-dim:    #5B1470;
-  --color-emerald:       #1A7A4A;
-  --color-emerald-light: #22A863;
+  /* ── Primary Brand — Terracotta & Sienna ─────────────────────────── */
+  --color-terracotta:       #A64B2A;
+  --color-terracotta-light: #C56A3D;
+  --color-terracotta-dim:   #7A3520;
+  --color-terracotta-glow:  rgba(166,75,42,0.3);
 
-  /* Backgrounds */
-  --color-background:        #0A0A0A;
-  --color-surface:           #111111;
-  --color-surface-elevated:  #1A1A1A;
-  --color-surface-hover:     #222222;
-  --color-surface-card:      #161616;
+  /* ── Accent — Warm Gold (earthy, not cold) ───────────────────────── */
+  --color-gold:          #D4A24C;
+  --color-gold-light:    #E8BA6A;
+  --color-gold-dim:      #9A7030;
+  --color-gold-glow:     rgba(212,162,76,0.25);
 
-  /* Borders */
-  --color-border:        #2A2A2A;
-  --color-border-subtle: #1E1E1E;
-  --color-border-gold:   rgba(201,168,76,0.2);
+  /* ── Energy — Sunset Orange ──────────────────────────────────────── */
+  --color-sunset:        #E07A2D;
+  --color-sunset-light:  #F0924A;
+  --color-sunset-dim:    #B05820;
 
-  /* Text */
-  --color-text-primary:   #F0EDE8;
-  --color-text-secondary: #A09880;
-  --color-text-muted:     #666055;
+  /* ── Secondary — Baobab Green & Savannah Olive ───────────────────── */
+  --color-emerald:       #556B2F;
+  --color-emerald-light: #6E8A3A;
+  --color-emerald-dim:   #3A4A20;
 
-  /* Glass layers */
-  --glass-bg:             rgba(255,255,255,0.03);
-  --glass-border:         rgba(255,255,255,0.06);
-  --glass-bg-gold:        rgba(201,168,76,0.04);
-  --glass-border-gold:    rgba(201,168,76,0.15);
-  --glass-bg-emerald:     rgba(26,122,74,0.06);
-  --glass-border-emerald: rgba(26,122,74,0.2);
-  --glass-bg-purple:      rgba(139,33,168,0.06);
-  --glass-border-purple:  rgba(139,33,168,0.2);
+  /* ── Deep Earth (replaces purple accent) ────────────────────────── */
+  --color-purple:        #8B4513;
+  --color-purple-light:  #A05C28;
+  --color-purple-dim:    #5C2D0A;
 
-  /* Input */
-  --input-bg:           rgba(255,255,255,0.04);
-  --input-bg-focus:     rgba(255,255,255,0.07);
-  --input-border:       #2A2A2A;
-  --input-border-focus: rgba(201,168,76,0.5);
-  --input-shadow-focus: rgba(201,168,76,0.08);
+  /* ── Backgrounds — Warm Charcoal Earth ──────────────────────────── */
+  --color-background:        #120D08;
+  --color-surface:           #1C1208;
+  --color-surface-elevated:  #271A0D;
+  --color-surface-hover:     #3B2A18;
+  --color-surface-card:      #1F1410;
 
-  /* Ghost button */
-  --btn-ghost-color:      #A09880;
-  --btn-ghost-hover-bg:   rgba(255,255,255,0.05);
-  --btn-ghost-hover-color:#F0EDE8;
+  /* ── Borders — Earth Tones ──────────────────────────────────────── */
+  --color-border:            #3A2A1E;
+  --color-border-subtle:     #2A1E14;
+  --color-border-gold:       rgba(212,162,76,0.2);
+  --color-border-terracotta: rgba(166,75,42,0.3);
 
-  /* Scrollbar */
-  --scrollbar-track: #111111;
-  --scrollbar-thumb: #2A2A2A;
+  /* ── Text — Warm Ivory & Sand ───────────────────────────────────── */
+  --color-text-primary:   #F0E8DC;
+  --color-text-secondary: #B8A088;
+  --color-text-muted:     #7A6050;
 
-  /* Shadows */
-  --shadow-card: 0 1px 0 rgba(255,255,255,0.04), 0 4px 24px rgba(0,0,0,0.4);
-  --shadow-gold: 0 0 30px rgba(201,168,76,0.2);
+  /* ── Glass layers — earth-warmed ────────────────────────────────── */
+  --glass-bg:                    rgba(255,240,220,0.03);
+  --glass-border:                rgba(255,240,220,0.07);
+  --glass-bg-gold:               rgba(212,162,76,0.05);
+  --glass-border-gold:           rgba(212,162,76,0.18);
+  --glass-bg-terracotta:         rgba(166,75,42,0.06);
+  --glass-border-terracotta:     rgba(166,75,42,0.22);
+  --glass-bg-emerald:            rgba(85,107,47,0.06);
+  --glass-border-emerald:        rgba(85,107,47,0.2);
+  --glass-bg-purple:             rgba(139,69,19,0.06);
+  --glass-border-purple:         rgba(139,69,19,0.2);
+
+  /* ── Input ───────────────────────────────────────────────────────── */
+  --input-bg:           rgba(255,240,220,0.04);
+  --input-bg-focus:     rgba(255,240,220,0.08);
+  --input-border:       #3A2A1E;
+  --input-border-focus: rgba(166,75,42,0.65);
+  --input-shadow-focus: rgba(166,75,42,0.12);
+
+  /* ── Ghost button ────────────────────────────────────────────────── */
+  --btn-ghost-color:       #B8A088;
+  --btn-ghost-hover-bg:    rgba(255,240,220,0.06);
+  --btn-ghost-hover-color: #F0E8DC;
+
+  /* ── Scrollbar ───────────────────────────────────────────────────── */
+  --scrollbar-track: #1C1208;
+  --scrollbar-thumb: #3A2A1E;
+
+  /* ── Shadows ─────────────────────────────────────────────────────── */
+  --shadow-card:       0 1px 0 rgba(255,240,220,0.04), 0 4px 28px rgba(0,0,0,0.55);
+  --shadow-gold:       0 0 32px rgba(212,162,76,0.25);
+  --shadow-terracotta: 0 0 32px rgba(166,75,42,0.35);
+  --shadow-sunset:     0 0 24px rgba(224,122,45,0.3);
+
+  /* ── African Pattern Definitions ────────────────────────────────── */
+  /* Patterns are defined here and used via utility classes below     */
+  --pattern-opacity-subtle: 0.06;
+  --pattern-opacity-medium: 0.09;
 }
 
-/* ── LIGHT MODE ───────────────────────────────────────────────────────── */
+/* ── LIGHT MODE — Warm Sand Ivory ────────────────────────────────────────── */
 :root.light,
 html.light {
   color-scheme: light;
 
-  /* Backgrounds — warm ivory / cream palette */
-  --color-background:        #FAFAF7;
-  --color-surface:           #F4F1EB;
-  --color-surface-elevated:  #FFFFFF;
-  --color-surface-hover:     #EDE8DF;
-  --color-surface-card:      #FFFFFF;
+  /* Backgrounds — warm sand / ivory */
+  --color-background:        #FBF7F0;
+  --color-surface:           #F4EDE0;
+  --color-surface-elevated:  #FEFCF8;
+  --color-surface-hover:     #EDE0CC;
+  --color-surface-card:      #FEFCF8;
 
   /* Borders */
-  --color-border:        #DDD6C8;
-  --color-border-subtle: #EDE8DF;
-  --color-border-gold:   rgba(201,168,76,0.35);
+  --color-border:            #DDD0BB;
+  --color-border-subtle:     #EDE0CC;
+  --color-border-gold:       rgba(212,162,76,0.35);
+  --color-border-terracotta: rgba(166,75,42,0.25);
 
   /* Text */
-  --color-text-primary:   #1A1208;
-  --color-text-secondary: #5A4E38;
-  --color-text-muted:     #9A8870;
+  --color-text-primary:   #1A0E08;
+  --color-text-secondary: #5A3A28;
+  --color-text-muted:     #9A7858;
 
   /* Glass → solid in light mode */
-  --glass-bg:             rgba(255,255,255,0.85);
-  --glass-border:         rgba(0,0,0,0.08);
-  --glass-bg-gold:        rgba(201,168,76,0.07);
-  --glass-border-gold:    rgba(201,168,76,0.25);
-  --glass-bg-emerald:     rgba(26,122,74,0.06);
-  --glass-border-emerald: rgba(26,122,74,0.2);
-  --glass-bg-purple:      rgba(139,33,168,0.05);
-  --glass-border-purple:  rgba(139,33,168,0.18);
+  --glass-bg:                rgba(255,255,255,0.85);
+  --glass-border:            rgba(60,30,10,0.1);
+  --glass-bg-gold:           rgba(212,162,76,0.08);
+  --glass-border-gold:       rgba(212,162,76,0.28);
+  --glass-bg-terracotta:     rgba(166,75,42,0.07);
+  --glass-border-terracotta: rgba(166,75,42,0.22);
+  --glass-bg-emerald:        rgba(85,107,47,0.07);
+  --glass-border-emerald:    rgba(85,107,47,0.22);
+  --glass-bg-purple:         rgba(139,69,19,0.06);
+  --glass-border-purple:     rgba(139,69,19,0.18);
 
   /* Input */
-  --input-bg:           rgba(0,0,0,0.03);
+  --input-bg:           rgba(60,30,10,0.04);
   --input-bg-focus:     rgba(255,255,255,1);
-  --input-border:       #DDD6C8;
-  --input-border-focus: rgba(201,168,76,0.6);
-  --input-shadow-focus: rgba(201,168,76,0.1);
+  --input-border:       #DDD0BB;
+  --input-border-focus: rgba(166,75,42,0.55);
+  --input-shadow-focus: rgba(166,75,42,0.1);
 
   /* Ghost button */
-  --btn-ghost-color:      #5A4E38;
-  --btn-ghost-hover-bg:   rgba(0,0,0,0.05);
-  --btn-ghost-hover-color:#1A1208;
+  --btn-ghost-color:       #5A3A28;
+  --btn-ghost-hover-bg:    rgba(60,30,10,0.06);
+  --btn-ghost-hover-color: #1A0E08;
 
   /* Scrollbar */
-  --scrollbar-track: #F4F1EB;
-  --scrollbar-thumb: #C8BFB0;
+  --scrollbar-track: #F4EDE0;
+  --scrollbar-thumb: #C8B8A0;
 
   /* Shadows */
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-gold: 0 0 30px rgba(201,168,76,0.25);
+  --shadow-card:       0 1px 3px rgba(60,20,0,0.08), 0 4px 16px rgba(60,20,0,0.07);
+  --shadow-gold:       0 0 28px rgba(212,162,76,0.3);
+  --shadow-terracotta: 0 0 24px rgba(166,75,42,0.2);
+  --shadow-sunset:     0 0 20px rgba(224,122,45,0.2);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -134,10 +167,6 @@ html.light {
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Smooth theme transition — applied on the HTML element so everything inherits */
-html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -150,14 +179,14 @@ body {
 }
 
 ::selection {
-  background-color: rgba(201,168,76,0.3);
+  background-color: rgba(166,75,42,0.3);
   color: var(--color-text-primary);
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
 ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(201,168,76,0.5); }
+::-webkit-scrollbar-thumb:hover { background: rgba(166,75,42,0.5); }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    COMPONENT LAYER
@@ -168,17 +197,22 @@ body {
   /* ── Typography gradients ──────────────────────────────────────────────── */
   .gold-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9A84C 0%, #E8C97D 50%, #A07835 100%);
+    background-image: linear-gradient(135deg, #C56A3D 0%, #D4A24C 45%, #A64B2A 100%);
+  }
+
+  .terracotta-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #A64B2A 0%, #E07A2D 55%, #D4A24C 100%);
   }
 
   .purple-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #8B21A8 0%, #B44FD4 50%, #8B21A8 100%);
+    background-image: linear-gradient(135deg, #A64B2A 0%, #C56A3D 50%, #E07A2D 100%);
   }
 
   .royal-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9A84C 0%, #E8C97D 40%, #B44FD4 70%, #8B21A8 100%);
+    background-image: linear-gradient(135deg, #A64B2A 0%, #D4A24C 40%, #E07A2D 70%, #C56A3D 100%);
   }
 
   /* ── Glass cards ───────────────────────────────────────────────────────── */
@@ -191,8 +225,8 @@ body {
   }
 
   .glass-card-gold {
-    background: var(--glass-bg-gold);
-    border: 1px solid var(--glass-border-gold);
+    background: var(--glass-bg-terracotta);
+    border: 1px solid var(--glass-border-terracotta);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -214,38 +248,71 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
+  .glass-card-terracotta {
+    background: var(--glass-bg-terracotta);
+    border: 1px solid var(--glass-border-terracotta);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
   /* ── Buttons ───────────────────────────────────────────────────────────── */
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 font-semibold text-black rounded-xl px-6 py-3 transition-all duration-200;
-    background: linear-gradient(135deg, #C9A84C 0%, #E8C97D 50%, #C9A84C 100%);
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-white rounded-xl px-6 py-3 transition-all duration-200;
+    background: linear-gradient(135deg, #A64B2A 0%, #E07A2D 60%, #C56A3D 100%);
     background-size: 200% auto;
   }
   .btn-gold:hover {
     background-position: right center;
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-terracotta);
     transform: translateY(-1px);
   }
   .btn-gold:active { transform: translateY(0); }
 
+  .btn-terracotta {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-white rounded-xl px-6 py-3 transition-all duration-200;
+    background: linear-gradient(135deg, #A64B2A 0%, #E07A2D 60%, #C56A3D 100%);
+    background-size: 200% auto;
+  }
+  .btn-terracotta:hover {
+    background-position: right center;
+    box-shadow: var(--shadow-terracotta);
+    transform: translateY(-1px);
+  }
+  .btn-terracotta:active { transform: translateY(0); }
+
   .btn-outline-gold {
     @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl px-6 py-3 transition-all duration-200;
-    color: #C9A84C;
-    border: 1px solid rgba(201,168,76,0.4);
-    background: rgba(201,168,76,0.04);
+    color: #D4A24C;
+    border: 1px solid rgba(212,162,76,0.4);
+    background: rgba(212,162,76,0.05);
   }
   .btn-outline-gold:hover {
-    background: rgba(201,168,76,0.1);
-    border-color: rgba(201,168,76,0.6);
+    background: rgba(212,162,76,0.1);
+    border-color: rgba(212,162,76,0.65);
+    color: #E8BA6A;
+  }
+
+  .btn-outline-terracotta {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl px-6 py-3 transition-all duration-200;
+    color: #C56A3D;
+    border: 1px solid rgba(166,75,42,0.4);
+    background: rgba(166,75,42,0.05);
+  }
+  .btn-outline-terracotta:hover {
+    background: rgba(166,75,42,0.1);
+    border-color: rgba(166,75,42,0.65);
+    color: #E07A2D;
   }
 
   .btn-purple {
     @apply inline-flex items-center justify-center gap-2 font-semibold text-white rounded-xl px-6 py-3 transition-all duration-200;
-    background: linear-gradient(135deg, #8B21A8 0%, #B44FD4 50%, #8B21A8 100%);
+    background: linear-gradient(135deg, #7A3520 0%, #A64B2A 50%, #C56A3D 100%);
     background-size: 200% auto;
   }
   .btn-purple:hover {
     background-position: right center;
-    box-shadow: 0 0 24px rgba(139,33,168,0.4);
+    box-shadow: var(--shadow-terracotta);
     transform: translateY(-1px);
   }
 
@@ -276,23 +343,23 @@ body {
   /* ── Badges ────────────────────────────────────────────────────────────── */
   .badge-elite {
     @apply inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full;
-    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(232,201,125,0.15));
-    color: #E8C97D;
-    border: 1px solid rgba(201,168,76,0.3);
+    background: linear-gradient(135deg, rgba(212,162,76,0.2), rgba(197,106,61,0.15));
+    color: #E8BA6A;
+    border: 1px solid rgba(212,162,76,0.3);
   }
 
   .badge-premium {
     @apply inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full;
-    background: rgba(26,122,74,0.2);
-    color: #22A863;
-    border: 1px solid rgba(26,122,74,0.3);
+    background: rgba(85,107,47,0.2);
+    color: #6E8A3A;
+    border: 1px solid rgba(85,107,47,0.3);
   }
 
   .badge-verified {
     @apply inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full;
-    background: rgba(59,130,246,0.15);
-    color: #60A5FA;
-    border: 1px solid rgba(59,130,246,0.25);
+    background: rgba(166,75,42,0.15);
+    color: #C56A3D;
+    border: 1px solid rgba(166,75,42,0.3);
   }
 
   /* ── Light-mode card override ──────────────────────────────────────────── */
@@ -302,13 +369,18 @@ body {
   }
 
   html.light .glass-card-gold {
-    background: var(--glass-bg-gold);
-    box-shadow: 0 2px 12px rgba(201,168,76,0.12);
+    background: var(--glass-bg-terracotta);
+    box-shadow: 0 2px 12px rgba(166,75,42,0.1);
+  }
+
+  html.light .glass-card-terracotta {
+    background: var(--glass-bg-terracotta);
+    box-shadow: 0 2px 12px rgba(166,75,42,0.1);
   }
 
   /* ── Miscellaneous ─────────────────────────────────────────────────────── */
   .section-divider { @apply border-t border-border; }
-  .rating-stars { color: #C9A84C; letter-spacing: 0.05em; }
+  .rating-stars { color: #D4A24C; letter-spacing: 0.05em; }
 
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -318,18 +390,18 @@ body {
     width: 2px;
     height: 2px;
     border-radius: 50%;
-    background: rgba(201,168,76,0.6);
+    background: rgba(166,75,42,0.6);
     pointer-events: none;
   }
 
-  html.light .particle { background: rgba(201,168,76,0.4); }
+  html.light .particle { background: rgba(166,75,42,0.4); }
 
   .shimmer-bg {
     background: linear-gradient(
       90deg,
-      rgba(255,255,255,0.03) 25%,
-      rgba(255,255,255,0.08) 50%,
-      rgba(255,255,255,0.03) 75%
+      rgba(255,240,220,0.03) 25%,
+      rgba(255,240,220,0.08) 50%,
+      rgba(255,240,220,0.03) 75%
     );
     background-size: 400% 100%;
     animation: shimmer 1.8s ease-in-out infinite;
@@ -338,12 +410,74 @@ body {
   html.light .shimmer-bg {
     background: linear-gradient(
       90deg,
-      rgba(0,0,0,0.03) 25%,
-      rgba(0,0,0,0.07) 50%,
-      rgba(0,0,0,0.03) 75%
+      rgba(60,20,0,0.03) 25%,
+      rgba(60,20,0,0.07) 50%,
+      rgba(60,20,0,0.03) 75%
     );
     background-size: 400% 100%;
   }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     AFRICAN GEOMETRIC PATTERN SYSTEM
+     Inspired by Kente, Maasai, Ndebele, Adinkra
+     All patterns use 6–9% opacity — extremely subtle, never distracting
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* Kente-inspired: offset geometric blocks */
+  .pattern-kente {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='24' height='24' fill='%23D4A24C' fill-opacity='0.07'/%3E%3Crect x='24' y='24' width='24' height='24' fill='%23D4A24C' fill-opacity='0.07'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23A64B2A' fill-opacity='0.06'/%3E%3Crect x='32' y='32' width='8' height='8' fill='%23A64B2A' fill-opacity='0.06'/%3E%3C/svg%3E");
+    background-size: 48px 48px;
+  }
+
+  /* Maasai beadwork: fine dot grid */
+  .pattern-maasai {
+    background-image:
+      radial-gradient(circle, rgba(166,75,42,0.09) 1.2px, transparent 1.2px);
+    background-size: 18px 18px;
+  }
+
+  /* Adinkra-inspired: concentric circles with cross — wisdom / unity */
+  .pattern-adinkra {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23A64B2A' stroke-opacity='0.08'%3E%3Ccircle cx='36' cy='36' r='26' stroke-width='0.8'/%3E%3Ccircle cx='36' cy='36' r='16' stroke-width='0.8'/%3E%3Ccircle cx='36' cy='36' r='6' stroke-width='0.8'/%3E%3Cline x1='10' y1='36' x2='62' y2='36' stroke-width='0.6'/%3E%3Cline x1='36' y1='10' x2='36' y2='62' stroke-width='0.6'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 72px 72px;
+  }
+
+  /* Ndebele-inspired: stepped diamond geometry */
+  .pattern-ndebele {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C56A3D' stroke-opacity='0.08' stroke-width='0.7'%3E%3Cpolygon points='20,3 37,12 37,28 20,37 3,28 3,12'/%3E%3Cpolygon points='20,10 30,15 30,25 20,30 10,25 10,15'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 40px 40px;
+  }
+
+  /* Diagonal fine stripe — subtle woven texture */
+  .pattern-weave {
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 6px,
+        rgba(166,75,42,0.05) 6px,
+        rgba(166,75,42,0.05) 7px
+      );
+  }
+
+  /* Section overlay — use as a ::before on section wrappers */
+  .pattern-section-overlay {
+    position: relative;
+  }
+  .pattern-section-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4A24C' stroke-opacity='0.05' stroke-width='0.5'%3E%3Crect x='5' y='5' width='50' height='50'/%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Cline x1='5' y1='5' x2='55' y2='55'/%3E%3Cline x1='55' y1='5' x2='5' y2='55'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+  .pattern-section-overlay > * { position: relative; z-index: 1; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -359,6 +493,28 @@ body {
   .bg-page    { background-color: var(--color-background); }
   .bg-surface { background-color: var(--color-surface); }
   .bg-card    { background-color: var(--color-surface-card); }
+
+  /* Earth gradient backgrounds */
+  .bg-earth-gradient {
+    background: linear-gradient(180deg, #120D08 0%, #1C1208 100%);
+  }
+  .bg-sunset-glow {
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(166,75,42,0.18) 0%, rgba(224,122,45,0.08) 50%, transparent 70%);
+  }
+  .bg-sand-warm {
+    background: linear-gradient(180deg, #FBF7F0 0%, #F4EDE0 100%);
+  }
+
+  /* Terracotta glow for section highlights */
+  .glow-terracotta {
+    box-shadow: var(--shadow-terracotta);
+  }
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  .glow-sunset {
+    box-shadow: var(--shadow-sunset);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -388,13 +544,25 @@ body {
 
 @keyframes pulseGold {
   0%, 100% { opacity: 1; }
-  50%      { opacity: 0.7; }
+  50%       { opacity: 0.7; }
 }
 
-.animate-float     { animation: float 6s ease-in-out infinite; }
-.animate-fade-up   { animation: fadeUp 0.6s ease-out forwards; }
-.animate-scale-in  { animation: scaleIn 0.4s ease-out forwards; }
-.animate-pulse-gold{ animation: pulseGold 2s ease-in-out infinite; }
+@keyframes earthGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(166,75,42,0.2); }
+  50%       { box-shadow: 0 0 40px rgba(224,122,45,0.35); }
+}
+
+@keyframes patternDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 72px 72px; }
+}
+
+.animate-float       { animation: float 6s ease-in-out infinite; }
+.animate-fade-up     { animation: fadeUp 0.6s ease-out forwards; }
+.animate-scale-in    { animation: scaleIn 0.4s ease-out forwards; }
+.animate-pulse-gold  { animation: pulseGold 2s ease-in-out infinite; }
+.animate-earth-glow  { animation: earthGlow 3s ease-in-out infinite; }
+.animate-pattern-drift { animation: patternDrift 20s linear infinite; }
 
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }

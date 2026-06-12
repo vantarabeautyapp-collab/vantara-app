@@ -30,19 +30,29 @@ export function HeroSection() {
       className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden bg-page transition-colors duration-300"
       aria-label="Hero — discover Africa's finest beauty professionals"
     >
-      {/* Background glows */}
+      {/* Background glows — sunset / earth atmosphere */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {/* Adinkra pattern overlay — extremely subtle */}
+        <div className="absolute inset-0 pattern-adinkra opacity-40" />
+        {/* Primary warm glow — terracotta sunrise */}
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] rounded-full opacity-15"
-          style={{ background: 'radial-gradient(ellipse, rgba(201,168,76,0.5) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse, rgba(166,75,42,0.6) 0%, rgba(224,122,45,0.2) 50%, transparent 70%)' }}
         />
+        {/* Left warm accent — savannah horizon */}
         <div
-          className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full opacity-8"
-          style={{ background: 'radial-gradient(ellipse, rgba(91,42,134,0.4) 0%, transparent 70%)' }}
+          className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full opacity-10"
+          style={{ background: 'radial-gradient(ellipse, rgba(224,122,45,0.4) 0%, transparent 70%)' }}
         />
+        {/* Right gold flare */}
         <div
           className="absolute bottom-1/4 right-1/4 w-[280px] h-[280px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(ellipse, rgba(201,168,76,0.5) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse, rgba(212,162,76,0.5) 0%, transparent 70%)' }}
+        />
+        {/* Horizon line */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32"
+          style={{ background: 'linear-gradient(0deg, rgba(166,75,42,0.06) 0%, transparent 100%)' }}
         />
       </div>
 

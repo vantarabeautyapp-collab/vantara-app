@@ -19,7 +19,7 @@ export function PassportSection() {
           <div
             aria-hidden="true"
             className="absolute -right-16 -top-16 w-64 h-64 rounded-full opacity-10"
-            style={{ background: 'radial-gradient(circle, #C9A84C, transparent)' }}
+            style={{ background: 'radial-gradient(circle, rgba(166,75,42,0.8), transparent)' }}
           />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center gap-10">
@@ -64,8 +64,8 @@ export function PassportSection() {
               <div
                 className="rounded-2xl p-6 text-white relative overflow-hidden"
                 style={{
-                  background: 'linear-gradient(135deg, #1A1A0A 0%, #2A2210 40%, #1A1505 100%)',
-                  border: '1px solid rgba(201,168,76,0.3)',
+                  background: 'linear-gradient(135deg, #1A0E08 0%, #271A0D 40%, #1F1410 100%)',
+                  border: '1px solid rgba(166,75,42,0.35)',
                 }}
                 aria-label="Sample Beauty Passport card — Silver tier, 2,450 points"
               >
@@ -103,7 +103,7 @@ export function PassportSection() {
                     <div className="h-1.5 bg-surface-elevated rounded-full overflow-hidden" role="progressbar" aria-valuenow={49} aria-valuemin={0} aria-valuemax={100}>
                       <div
                         className="h-full rounded-full"
-                        style={{ width: '49%', background: 'linear-gradient(90deg, #C9A84C, #E8C97D)' }}
+                        style={{ width: '49%', background: 'linear-gradient(90deg, #A64B2A, #E07A2D, #D4A24C)' }}
                       />
                     </div>
                   </div>

@@ -6,9 +6,9 @@ const VALUES = [
     icon:        Shield,
     name:        'Trust',
     description: 'Every business is manually reviewed. Verified badges are earned, not bought.',
-    color:       'text-blue-400',
-    bg:          'bg-blue-500/10',
-    border:      'border-blue-500/20',
+    color:       'text-terracotta-light',
+    bg:          'bg-terracotta/10',
+    border:      'border-terracotta/20',
   },
   {
     icon:        Star,
@@ -22,25 +22,25 @@ const VALUES = [
     icon:        Lightbulb,
     name:        'Innovation',
     description: 'AI recommendations, real-time availability, M-Pesa payments — technology that actually fits Africa.',
-    color:       'text-purple-400',
-    bg:          'bg-purple-500/10',
-    border:      'border-purple-500/20',
+    color:       'text-sunset',
+    bg:          'bg-sunset/10',
+    border:      'border-sunset/20',
   },
   {
     icon:        TrendingUp,
     name:        'Empowerment',
     description: 'We give independent professionals the tools, visibility, and community to grow — on their own terms.',
-    color:       'text-emerald-400',
-    bg:          'bg-emerald-500/10',
-    border:      'border-emerald-500/20',
+    color:       'text-emerald-light',
+    bg:          'bg-emerald-brand/10',
+    border:      'border-emerald-brand/20',
   },
   {
     icon:        Users,
     name:        'Community',
     description: 'Every booking is a connection. Every review builds the next professional\'s reputation.',
-    color:       'text-rose-400',
-    bg:          'bg-rose-500/10',
-    border:      'border-rose-500/20',
+    color:       'text-gold-light',
+    bg:          'bg-gold/10',
+    border:      'border-gold/20',
   },
 ]
 
@@ -56,19 +56,24 @@ export function ManifestoSection() {
       className="relative py-24 px-4 border-t border-border overflow-hidden"
       aria-labelledby="manifesto-heading"
     >
-      {/* Background texture */}
+      {/* Background — kente geometric overlay + warm earth glows */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {/* Kente pattern — section identity */}
+        <div className="absolute inset-0 pattern-kente opacity-60" />
+        {/* Top divider line — warm gold */}
         <div
           className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(166,75,42,0.5), rgba(212,162,76,0.4), transparent)' }}
         />
+        {/* Terracotta ambient glow — left */}
         <div
-          className="absolute left-1/4 top-1/3 w-96 h-96 rounded-full opacity-5"
-          style={{ background: 'radial-gradient(circle, #C9A84C, transparent)' }}
+          className="absolute left-1/4 top-1/3 w-96 h-96 rounded-full opacity-6"
+          style={{ background: 'radial-gradient(circle, rgba(166,75,42,0.8), transparent)' }}
         />
+        {/* Sunset accent — right */}
         <div
           className="absolute right-1/4 bottom-1/3 w-64 h-64 rounded-full opacity-5"
-          style={{ background: 'radial-gradient(circle, #5B2A86, transparent)' }}
+          style={{ background: 'radial-gradient(circle, rgba(224,122,45,0.7), transparent)' }}
         />
       </div>
 
@@ -82,7 +87,7 @@ export function ManifestoSection() {
 
           <div
             className="relative mx-auto max-w-3xl mb-8"
-            style={{ borderLeft: '3px solid rgba(201,168,76,0.4)', paddingLeft: '2rem' }}
+            style={{ borderLeft: '3px solid rgba(166,75,42,0.55)', paddingLeft: '2rem' }}
           >
             <blockquote>
               <p
@@ -123,7 +128,7 @@ export function ManifestoSection() {
         {/* ── Continent Scale ────────────────────────────────────────────── */}
         <div
           className="grid grid-cols-3 gap-6 mb-20 rounded-2xl p-6 sm:p-8"
-          style={{ background: 'linear-gradient(135deg, rgba(201,168,76,0.05), rgba(17,17,17,0.8))', border: '1px solid rgba(201,168,76,0.15)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(166,75,42,0.08), rgba(212,162,76,0.04), rgba(18,13,8,0.9))', border: '1px solid rgba(166,75,42,0.2)' }}
         >
           {IMPACT.map((item, i) => (
             <div key={i} className="text-center">

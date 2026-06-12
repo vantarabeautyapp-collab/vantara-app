@@ -18,12 +18,12 @@ export function CTASection() {
           className="absolute inset-0 opacity-30"
           style={{
             background:
-              'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.15) 0%, transparent 70%)',
+              'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(166,75,42,0.2) 0%, transparent 70%)',
           }}
         />
         <div
           className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(166,75,42,0.5), rgba(212,162,76,0.35), transparent)' }}
         />
       </div>
 
