@@ -10,12 +10,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getGoogleAuthURL } from '@/lib/google-auth'
 
+export const dynamic = 'force-dynamic'
+
+const BASE = process.env.NEXT_PUBLIC_PRODUCTION_URL ?? 'https://vantarafrique.com'
+
 export async function GET(req: NextRequest) {
   if (!process.env.GOOGLE_CLIENT_ID) {
-    // Google OAuth not configured — return a helpful error instead of crashing
-    return NextResponse.redirect(
-      `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/login?error=google_not_configured`,
-    )
+    return NextResponse.redirect(`${BASE}/login?error=google_not_configured`)
   }
 
   const { searchParams } = new URL(req.url)
@@ -30,8 +31,6 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(url)
   } catch (err) {
     console.error('[Google OAuth] Failed to build auth URL:', err)
-    return NextResponse.redirect(
-      `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/login?error=oauth_error`,
-    )
+    return NextResponse.redirect(`${BASE}/login?error=oauth_error`)
   }
 }
