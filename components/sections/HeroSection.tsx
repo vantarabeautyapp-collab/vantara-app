@@ -2,8 +2,17 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Search, MapPin, ChevronDown } from 'lucide-react'
+import { Search, MapPin, ChevronDown, Scissors, Sparkles, Star, Palette, Crown, Flower2, Eye, Heart } from 'lucide-react'
 import { CITIES } from '@/lib/mock-data'
+
+const SERVICE_IMAGES = [
+  { id: 'barbershop', label: 'Barbershops',    Icon: Scissors, bg: 'linear-gradient(135deg,#A64B2A 0%,#7A3520 100%)', pattern: 'pattern-kente',   glow: 'rgba(166,75,42,0.5)'  },
+  { id: 'salon',      label: 'Hair Salons',    Icon: Sparkles, bg: 'linear-gradient(135deg,#D4A24C 0%,#9A7030 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.5)' },
+  { id: 'nails',      label: 'Nail Studios',   Icon: Star,     bg: 'linear-gradient(135deg,#E07A2D 0%,#B05820 100%)', pattern: 'pattern-maasai',  glow: 'rgba(224,122,45,0.5)' },
+  { id: 'makeup',     label: 'Makeup Artists', Icon: Palette,  bg: 'linear-gradient(135deg,#C56A3D 0%,#A64B2A 100%)', pattern: 'pattern-ndebele', glow: 'rgba(197,106,61,0.5)' },
+  { id: 'braiding',   label: 'Braiding',       Icon: Crown,    bg: 'linear-gradient(135deg,#556B2F 0%,#3A4A20 100%)', pattern: 'pattern-kente',   glow: 'rgba(85,107,47,0.5)'  },
+  { id: 'skincare',   label: 'Skincare',       Icon: Flower2,  bg: 'linear-gradient(135deg,#D4A24C 0%,#A64B2A 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.4)' },
+]
 
 const STATS = [
   { value: '12,400+', label: 'Verified Professionals' },
@@ -142,6 +151,41 @@ export function HeroSection() {
               className="text-xs px-3 py-1.5 rounded-full border border-border text-text-muted hover:text-text-primary hover:border-border-gold transition-all duration-150"
             >
               {tag}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Service image gallery */}
+      <div className="w-full max-w-3xl mx-auto mt-10 animate-fade-up delay-300">
+        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:grid sm:grid-cols-6">
+          {SERVICE_IMAGES.map(svc => (
+            <Link
+              key={svc.id}
+              href={`/search?category=${svc.id}&city=${selectedCity}`}
+              aria-label={`Browse ${svc.label}`}
+              className="group relative shrink-0 w-[110px] sm:w-auto h-[110px] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              style={{ background: svc.bg }}
+            >
+              {/* Pattern overlay */}
+              <div className={`absolute inset-0 ${svc.pattern} opacity-30`} aria-hidden="true" />
+              {/* Glow on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: `radial-gradient(circle at 50% 50%, ${svc.glow} 0%, transparent 70%)` }}
+              />
+              {/* Icon */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                <svc.Icon size={26} className="text-white opacity-90" aria-hidden="true" />
+                <span className="text-white text-[10px] font-semibold tracking-wide text-center px-1 leading-tight opacity-90">
+                  {svc.label}
+                </span>
+              </div>
+              {/* Bottom shimmer line */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)' }}
+              />
             </Link>
           ))}
         </div>

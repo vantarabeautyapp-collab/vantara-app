@@ -65,8 +65,9 @@ const PLANS: Plan[] = [
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-20 px-4 border-t border-border" aria-labelledby="pricing-heading">
-      <div className="max-w-4xl mx-auto">
+    <section id="pricing" className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="pricing-heading">
+      <div className="absolute inset-0 pattern-kente opacity-45 pointer-events-none" aria-hidden="true" />
+      <div className="max-w-4xl mx-auto relative">
         <div className="text-center mb-12">
           <h2
             id="pricing-heading"

@@ -12,8 +12,9 @@ const TIERS = [
 
 export function PassportSection() {
   return (
-    <section className="py-20 px-4 border-t border-border" aria-labelledby="passport-heading">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="passport-heading">
+      <div className="absolute inset-0 pattern-kente opacity-45 pointer-events-none" aria-hidden="true" />
+      <div className="max-w-5xl mx-auto relative">
         <div className="glass-card-gold rounded-3xl p-8 sm:p-12 relative overflow-hidden">
           {/* Background glow */}
           <div

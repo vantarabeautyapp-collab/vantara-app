@@ -70,8 +70,9 @@ const FEATURES: Feature[] = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-20 px-4 border-t border-border" aria-labelledby="features-heading">
-      <div className="max-w-6xl mx-auto">
+    <section id="features" className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="features-heading">
+      <div className="absolute inset-0 pattern-adinkra opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-14">
           <p className="text-xs font-semibold tracking-widest uppercase text-terracotta mb-3">Platform Features</p>
           <h2

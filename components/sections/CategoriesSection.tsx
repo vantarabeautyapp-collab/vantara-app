@@ -78,8 +78,9 @@ const SERVICE_CATEGORIES = [
 
 export function CategoriesSection() {
   return (
-    <section className="py-20 px-4" aria-labelledby="categories-heading">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-20 px-4 relative overflow-hidden" aria-labelledby="categories-heading">
+      <div className="absolute inset-0 pattern-kente opacity-50 pointer-events-none" aria-hidden="true" />
+      <div className="max-w-6xl mx-auto relative">
 
         <div className="text-center mb-14">
           <p className="text-xs font-semibold tracking-widest uppercase text-terracotta mb-3">Services</p>

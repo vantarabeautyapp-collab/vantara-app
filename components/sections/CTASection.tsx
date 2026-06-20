@@ -14,6 +14,7 @@ export function CTASection() {
     <section className="py-24 px-4 border-t border-border relative overflow-hidden" aria-labelledby="cta-heading">
       {/* Background treatment */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 pattern-adinkra opacity-40" />
         <div
           className="absolute inset-0 opacity-30"
           style={{

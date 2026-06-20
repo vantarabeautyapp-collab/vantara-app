@@ -19,8 +19,9 @@ const STATS = [
 
 export function ForBusinessSection() {
   return (
-    <section id="business" className="py-20 px-4 border-t border-border" aria-labelledby="business-heading">
-      <div className="max-w-5xl mx-auto">
+    <section id="business" className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="business-heading">
+      <div className="absolute inset-0 pattern-ndebele opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="max-w-5xl mx-auto relative">
         <div className="glass-card-emerald rounded-3xl p-8 sm:p-12">
           <div className="grid sm:grid-cols-2 gap-10 items-center">
 
