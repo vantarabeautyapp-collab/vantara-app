@@ -19,19 +19,35 @@ import { PricingSection }     from '@/components/sections/PricingSection'
 import { CTASection }         from '@/components/sections/CTASection'
 import { FooterSection }      from '@/components/sections/FooterSection'
 
+function KenteDivider() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        height: '6px',
+        width: '100%',
+        background: 'repeating-linear-gradient(90deg, #A64B2A 0, #A64B2A 16.67%, #D4A24C 16.67%, #D4A24C 33.33%, #120D08 33.33%, #120D08 50%, #556B2F 50%, #556B2F 66.67%, #E07A2D 66.67%, #E07A2D 83.33%, #8B3A1A 83.33%, #8B3A1A 100%)',
+      }}
+    />
+  )
+}
+
 export default function LandingPage() {
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ background: 'var(--color-background)' }}>
       <NavbarSection />
       <HeroSection />
+      <KenteDivider />
       <CategoriesSection />
       <HowItWorksSection />
       <ManifestoSection />
+      <KenteDivider />
       <FeaturedSection />
       <FeaturesSection />
       <PassportSection />
       <TestimonialsSection />
       <ForBusinessSection />
+      <KenteDivider />
       <PricingSection />
       <CTASection />
       <FooterSection />

@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vantara Afrique | Premium African Beauty &amp; Grooming</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .adinkra-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .kente-strip {
+            background: repeating-linear-gradient(
+                45deg,
+                #C05D38 0, #C05D38 10px,
+                #D4AF37 10px, #D4AF37 20px,
+                #120D08 20px, #120D08 30px,
+                #5D6D37 30px, #5D6D37 40px
+            );
+            height: 4px;
+            width: 100%;
+        }
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background-color: rgba(30, 22, 15, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#18120d",
+                      "on-surface-variant": "#dcc1b8",
+                      "surface-container-lowest": "#120d08",
+                      "on-tertiary-container": "#481d00",
+                      "tertiary-fixed-dim": "#ffb68d",
+                      "on-secondary-fixed-variant": "#574500",
+                      "tertiary-container": "#da7635",
+                      "error": "#ffb4ab",
+                      "surface-variant": "#3a342d",
+                      "surface-tint": "#ffb59b",
+                      "on-primary-fixed": "#380d00",
+                      "on-surface": "#ede0d7",
+                      "on-primary-fixed-variant": "#7e2c0a",
+                      "on-tertiary": "#532200",
+                      "on-secondary-container": "#342800",
+                      "inverse-primary": "#9d4320",
+                      "secondary-fixed": "#ffe088",
+                      "surface-container-highest": "#3a342d",
+                      "on-tertiary-fixed": "#321200",
+                      "secondary": "#e9c349",
+                      "surface-container-high": "#2f2923",
+                      "primary": "#ffb59b",
+                      "error-container": "#93000a",
+                      "surface-bright": "#3f3831",
+                      "inverse-surface": "#ede0d7",
+                      "surface-container-low": "#201b15",
+                      "inverse-on-surface": "#362f29",
+                      "primary-fixed-dim": "#ffb59b",
+                      "primary-container": "#dd734c",
+                      "on-background": "#ede0d7",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-error": "#690005",
+                      "tertiary": "#ffb68d",
+                      "outline-variant": "#56423c",
+                      "on-primary-container": "#501600",
+                      "tertiary-fixed": "#ffdbc9",
+                      "surface-container": "#241f19",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#241a00",
+                      "surface": "#18120d",
+                      "on-primary": "#5c1a00",
+                      "outline": "#a48b83",
+                      "background": "#18120d",
+                      "primary-fixed": "#ffdbcf",
+                      "on-secondary": "#3c2f00",
+                      "secondary-container": "#af8d11",
+                      "on-tertiary-fixed-variant": "#763300"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"],
+                      "display-lg-mobile": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 w-full z-50 bg-surface-dim/90 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 md:h-20">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<img alt="SANKOFA Logo" class="h-8 md:h-10 w-auto" src="/images/stitch/logo.jpg"/>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tighter hidden md:block">Vantara Afrique</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary font-bold font-label-md hover:text-secondary transition-colors duration-300" href="#">Discover</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#">Heritage Collection</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#">Our Story</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#">Experts</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-secondary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-secondary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="hidden md:flex items-center gap-2 bg-secondary-container/10 border border-secondary/30 px-4 py-2 rounded-full text-secondary font-label-md hover:bg-secondary-container/20 transition-all">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                Kwame Osei
+            </button>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-margin-mobile overflow-hidden">
+<!-- Adinkra Pattern Overlay -->
+<div class="absolute inset-0 adinkra-pattern opacity-10 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full animate-[pulse_8s_infinite]"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-secondary/5 rounded-full animate-[pulse_6s_infinite]"></div>
+<div class="relative z-10 max-w-4xl">
+<span class="text-secondary font-label-md tracking-[0.2em] uppercase mb-6 block">Ancestral Roots. Modern Beauty.</span>
+<h1 class="font-display-lg text-[48px] md:text-[84px] leading-[1.1] mb-8 gold-gradient-text drop-shadow-2xl">
+                    DISCOVER. <br/> BOOK. GLOW.
+                </h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl mx-auto mb-12">
+                    Experience the finest African grooming and beauty services. From heritage braiding to modern skincare, connect with world-class artisans.
+                </p>
+<!-- Search Bar Integrated -->
+<div class="max-w-2xl mx-auto w-full group">
+<div class="flex flex-col md:flex-row bg-surface-container-high/80 backdrop-blur-md p-2 rounded-xl md:rounded-full border border-outline-variant/30 shadow-2xl transition-all focus-within:border-secondary/50">
+<div class="flex-1 flex items-center px-4 py-3 md:py-0 border-b md:border-b-0 md:border-r border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary mr-3">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder:text-on-surface-variant/50 font-body-md italic font-[Playfair Display]" placeholder="Your City (e.g. Accra, Lagos)" type="text"/>
+</div>
+<div class="flex-1 flex items-center px-4 py-3 md:py-0">
+<span class="material-symbols-outlined text-secondary mr-3">spa</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder:text-on-surface-variant/50 font-body-md italic font-[Playfair Display]" placeholder="Service (e.g. Braiding, Barber)" type="text"/>
+</div>
+<button class="bg-tertiary-container text-on-tertiary-container px-8 py-3 rounded-lg md:rounded-full font-label-md hover:bg-tertiary transition-colors active:scale-95">
+                            FIND ARTISANS
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Kente Divider -->
+<div class="kente-strip"></div>
+<!-- Services Grid -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="max-w-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Curated Heritage Services</h2>
+<p class="text-on-surface-variant">Select from our specialized categories of traditional and modern beauty expertise.</p>
+</div>
+<button class="text-secondary font-label-md flex items-center gap-2 hover:gap-4 transition-all">
+                    VIEW ALL SERVICES <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-gutter">
+<!-- Barbershops -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#C05D38] rounded-xl mb-4 flex flex-col items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+<span class="material-symbols-outlined text-[48px] text-white mb-2 relative z-10">content_cut</span>
+<span class="text-white font-label-md font-bold tracking-wider relative z-10">BARBER</span>
+</div>
+<h3 class="font-headline-sm text-center text-[16px] text-on-surface group-hover:text-secondary transition-colors">Barbershops</h3>
+</div>
+<!-- Hair Salons -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#D4AF37] rounded-xl mb-4 flex flex-col items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')]"></div>
+<span class="material-symbols-outlined text-[48px] text-[#342800] mb-2 relative z-10" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+<span class="text-[#342800] font-label-md font-bold tracking-wider relative z-10">SALON</span>
+</div>
+<h3 class="font-headline-sm text-center text-[16px] text-on-surface group-hover:text-secondary transition-colors">Hair Salons</h3>
+</div>
+<!-- Nail Studios -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#E37D3B] rounded-xl mb-4 flex flex-col items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/kente.png')]"></div>
+<span class="material-symbols-outlined text-[48px] text-white mb-2 relative z-10">dry_cleaning</span>
+<span class="text-white font-label-md font-bold tracking-wider relative z-10">NAILS</span>
+</div>
+<h3 class="font-headline-sm text-center text-[16px] text-on-surface group-hover:text-secondary transition-colors">Nail Studios</h3>
+</div>
+<!-- Makeup Artists -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#C05D38] rounded-xl mb-4 flex flex-col items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/az-subtle.png')]"></div>
+<span class="material-symbols-outlined text-[48px] text-white mb-2 relative z-10">brush</span>
+<span class="text-white font-label-md font-bold tracking-wider relative z-10">MAKEUP</span>
+</div>
+<h3 class="font-headline-sm text-center text-[16px] text-on-surface group-hover:text-secondary transition-colors">Makeup Artists</h3>
+</div>
+<!-- Braiding -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#5D6D37] rounded-xl mb-4 flex flex-col items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/weave.png')]"></div>
+<span class="material-symbols-outlined text-[48px] text-white mb-2 relative z-10">grid_4x4</span>
+<span class="text-white font-label-md font-bold tracking-wider relative z-10">BRAID</span>
+</div>
+<h3 class="font-headline-sm text-center text-[16px] text-on-surface group-hover:text-secondary transition-colors">Braiding</h3>
+</div>
+<!-- Skincare -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-[#D4AF37] rounded-xl mb-4 flex flex-col items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/circles.png')]"></div>
+<span class="material-symbols-outlined text-[48px] text-[#342800] mb-2 relative z-10">spa</span>
+<span class="text-[#342800] font-label-md font-bold tracking-wider relative z-10">SKIN</span>
+</div>
+<h3 class="font-headline-sm text-center text-[16px] text-on-surface group-hover:text-secondary transition-colors">Skincare</h3>
+</div>
+</div>
+</section>
+<!-- Featured Professionals Section -->
+<section class="py-24 bg-surface-container-low/50">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-16 text-center">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Artisans of the Month</h2>
+<div class="w-12 h-1 bg-secondary mx-auto mb-6"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Featured Card 1 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 hover:border-secondary/50 transition-all duration-300 shadow-xl">
+<div class="h-80 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A portrait of a professional African hair stylist in a luxurious, modern salon in Accra. Soft warm lighting illuminates her focused expression as she intricate braids a client's hair. The background features deep wooden textures and gold accents, reflecting a high-end editorial aesthetic with a premium dark mode feel." style="background-image: url('/images/stitch/braiding.jpg')"></div>
+<div class="absolute top-4 left-4 bg-[#5D6D37]/90 text-white px-3 py-1 rounded-full text-label-sm backdrop-blur-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Featured Expert
+                            </div>
+<div class="absolute top-4 right-4 bg-surface-dim/80 backdrop-blur-md px-3 py-1 rounded-full text-label-sm flex items-center gap-1 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 (128)
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-[20px]">Eshun's Braiding Studio</h4>
+<span class="text-secondary font-bold text-[18px]">$$$</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm mb-6">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Osu, Accra
+                            </div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md italic">Expert Braiding &amp; Twists</span>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-md hover:bg-secondary-container transition-colors active:scale-95">BOOK</button>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 hover:border-secondary/50 transition-all duration-300 shadow-xl">
+<div class="h-80 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Close-up shot of a master barber's tools and hands performing a precision fade on a client in a high-end barbershop in Lagos. The environment is moody and sophisticated, with warm gold lighting, marble surfaces, and a minimalist luxury grooming aesthetic. Professional photography style with shallow depth of field." style="background-image: url('/images/stitch/barber.jpg')"></div>
+<div class="absolute top-4 right-4 bg-surface-dim/80 backdrop-blur-md px-3 py-1 rounded-full text-label-sm flex items-center gap-1 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> 5.0 (342)
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-[20px]">The Royal Grooming Co.</h4>
+<span class="text-secondary font-bold text-[18px]">$$$</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm mb-6">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Victoria Island, Lagos
+                            </div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md italic">Master Barber Services</span>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-md hover:bg-secondary-container transition-colors active:scale-95">BOOK</button>
+</div>
+</div>
+</div>
+<!-- Featured Card 3 -->
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 hover:border-secondary/50 transition-all duration-300 shadow-xl">
+<div class="h-80 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A tranquil, high-end skincare spa interior in Nairobi featuring earthen clay walls, terracotta tiles, and minimalist shelving with premium beauty products. A therapist is preparing a natural African botanical treatment. The scene is illuminated by soft, natural light and flickering candles, creating a serene, ancestral luxury mood." style="background-image: url('/images/stitch/skincare.jpg')"></div>
+<div class="absolute top-4 right-4 bg-surface-dim/80 backdrop-blur-md px-3 py-1 rounded-full text-label-sm flex items-center gap-1 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8 (89)
+                            </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-[20px]">Nia Skincare Oasis</h4>
+<span class="text-secondary font-bold text-[18px]">$$</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm mb-6">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Westlands, Nairobi
+                            </div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md italic">Holistic African Facials</span>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-md hover:bg-secondary-container transition-colors active:scale-95">BOOK</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="py-20 bg-surface-dim border-y border-outline-variant/20">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div>
+<p class="font-display-lg text-primary text-[40px] mb-2">12400+</p>
+<p class="font-label-md text-on-surface-variant uppercase tracking-widest">professionals</p>
+</div>
+<div>
+<p class="font-display-lg text-secondary text-[40px] mb-2">8200+</p>
+<p class="font-label-md text-on-surface-variant uppercase tracking-widest">bookings</p>
+</div>
+<div>
+<p class="font-display-lg text-primary text-[40px] mb-2">5</p>
+<p class="font-label-md text-on-surface-variant uppercase tracking-widest">countries</p>
+</div>
+<div>
+<div class="flex items-center justify-center gap-2 mb-2">
+<p class="font-display-lg text-secondary text-[40px]">4.8</p>
+<span class="material-symbols-outlined text-secondary text-[32px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-label-md text-on-surface-variant uppercase tracking-widest">user rating</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / Adinkra Divider -->
+<div class="flex justify-center py-16 opacity-30">
+<span class="material-symbols-outlined text-secondary text-[48px]">all_inclusive</span>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/20 rounded-t-full shadow-lg flex justify-around items-center h-20 pb-safe px-4">
+<a class="flex flex-col items-center justify-center text-secondary bg-secondary-container/10 rounded-full px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">spa</span>
+<span class="font-label-sm text-label-sm">Services</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Adinkra Watermark (Subtle Background Detail) -->
+<div class="fixed bottom-10 right-10 pointer-events-none select-none opacity-[0.03] rotate-12">
+<span class="material-symbols-outlined text-[300px]">filter_vintage</span>
+</div>
+<script>
+        // Simple Micro-interaction for search focus
+        const searchInputs = document.querySelectorAll('input');
+        searchInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.closest('.group').classList.add('scale-[1.02]');
+            });
+            input.addEventListener('blur', () => {
+                input.closest('.group').classList.remove('scale-[1.02]');
+            });
+        });
+
+        // Hover animation for service cards
+        const serviceCards = document.querySelectorAll('.group.cursor-pointer');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                icon.style.fontVariationSettings = "'FILL' 1";
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                // Only reset if it didn't have FILL initially
+                if (!card.innerText.includes('SALON')) {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                }
+            });
+        });
+    </script>
+</body></html>
