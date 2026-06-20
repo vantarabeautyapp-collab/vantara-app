@@ -18,8 +18,12 @@ export function NavbarSection() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-xl transition-colors duration-300"
-      style={{ background: 'var(--color-background)', opacity: 0.95 }}
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-colors duration-300"
+      style={{
+        background: 'rgba(18,13,8,0.92)',
+        borderBottom: '1px solid rgba(166,75,42,0.2)',
+        boxShadow: '0 1px 24px rgba(166,75,42,0.06)',
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
 
@@ -42,7 +46,11 @@ export function NavbarSection() {
           <Link href="/login" className="hidden sm:block text-sm text-text-secondary hover:text-text-primary transition-colors px-3 py-2">
             Sign In
           </Link>
-          <Link href="/register" className="btn-gold text-sm px-4 py-2 font-semibold rounded-lg">
+          <Link
+            href="/register"
+            className="btn-gold text-sm px-5 py-2 font-semibold rounded-xl"
+            style={{ boxShadow: '0 0 16px rgba(166,75,42,0.35)' }}
+          >
             Get Started
           </Link>
 

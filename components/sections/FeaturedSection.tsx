@@ -36,7 +36,16 @@ export function FeaturedSection() {
               className="group"
               aria-label={`${business.name} — rated ${business.rating} stars`}
             >
-              <article className="glass-card rounded-2xl overflow-hidden border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-gold-sm h-full">
+              <article
+                className="rounded-2xl overflow-hidden border transition-all duration-300 h-full group-hover:-translate-y-1"
+                style={{
+                  background: 'linear-gradient(160deg, #1F1410 0%, #1C1208 100%)',
+                  borderColor: 'rgba(58,42,30,1)',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.4)',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(166,75,42,0.4)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(166,75,42,0.15)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(58,42,30,1)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 2px 12px rgba(0,0,0,0.4)' }}
+              >
                 {/* Cover image */}
                 <div className="relative h-44 overflow-hidden">
                   <Image
@@ -82,7 +91,7 @@ export function FeaturedSection() {
                 {/* Card body */}
                 <div className="p-4">
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className="font-semibold text-text-primary group-hover:text-gold transition-colors leading-tight">
+                    <h3 className="font-semibold text-text-primary group-hover:text-terracotta-light transition-colors leading-tight">
                       {business.name}
                     </h3>
                     <div className="flex items-center gap-1 shrink-0">

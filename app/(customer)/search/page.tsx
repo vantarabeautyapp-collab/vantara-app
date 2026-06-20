@@ -106,9 +106,9 @@ export default function SearchPage() {
   )
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pb-24">
+    <div className="min-h-screen pb-24" style={{ background: 'var(--color-background)' }}>
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-border px-4 py-3">
+      <header className="sticky top-0 z-30 backdrop-blur-xl px-4 py-3" style={{ background: 'rgba(18,13,8,0.96)', borderBottom: '1px solid rgba(166,75,42,0.15)' }}>
         <div className="flex items-center gap-3 mb-3">
           <Link href="/home" className="w-9 h-9 rounded-xl glass-card flex items-center justify-center shrink-0">
             <ArrowLeft size={17} className="text-text-secondary" />
@@ -243,9 +243,10 @@ export default function SearchPage() {
               className={cn(
                 'shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150',
                 category === cat.id
-                  ? 'bg-gold text-black'
-                  : 'glass-card text-text-muted border border-border hover:border-gold/30 hover:text-text-secondary'
+                  ? 'text-white border border-terracotta/60'
+                  : 'glass-card text-text-muted border border-border hover:border-terracotta/30 hover:text-text-secondary'
               )}
+              style={category === cat.id ? { background: 'linear-gradient(135deg,#A64B2A,#E07A2D)' } : {}}
             >
               {cat.label}
             </button>
@@ -326,7 +327,12 @@ export default function SearchPage() {
           <div className="space-y-4">
             {results.map(business => (
               <Link key={business.id} href={`/salon/${business.id}`}>
-                <div className="glass-card rounded-2xl overflow-hidden border border-border hover:border-gold/30 transition-all duration-200">
+                <div
+                  className="rounded-2xl overflow-hidden border transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ background: 'linear-gradient(160deg,#1F1410,#1C1208)', borderColor: 'rgba(58,42,30,1)', boxShadow: '0 2px 12px rgba(0,0,0,0.35)' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor='rgba(166,75,42,0.4)'; (e.currentTarget as HTMLElement).style.boxShadow='0 8px 28px rgba(166,75,42,0.14)' }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor='rgba(58,42,30,1)'; (e.currentTarget as HTMLElement).style.boxShadow='0 2px 12px rgba(0,0,0,0.35)' }}
+                >
                   <div className="relative h-40 overflow-hidden">
                     <Image src={business.coverImage} alt={business.name} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

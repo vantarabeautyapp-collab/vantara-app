@@ -45,7 +45,7 @@ const COUNTRIES = [
 
 export function FooterSection() {
   return (
-    <footer className="border-t border-border py-14 px-4">
+    <footer className="py-14 px-4" style={{ borderTop: '1px solid rgba(166,75,42,0.25)', background: 'linear-gradient(180deg, var(--color-background) 0%, rgba(28,18,8,0.6) 100%)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
 
