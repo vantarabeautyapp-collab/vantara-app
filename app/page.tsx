@@ -21,7 +21,7 @@ import { FooterSection }      from '@/components/sections/FooterSection'
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden" style={{ background: 'var(--color-background)' }}>
       <NavbarSection />
       <HeroSection />
       <CategoriesSection />

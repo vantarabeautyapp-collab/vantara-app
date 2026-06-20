@@ -14,7 +14,7 @@ const PERKS = [
 const STATS = [
   { label: 'More Bookings',     value: '+127%',    sub: 'average increase after joining Vantara',  color: 'text-gold'          },
   { label: 'New Customers',     value: '68%',       sub: 'of each business\'s bookings are new clients', color: 'text-emerald-light' },
-  { label: 'Revenue Growth',    value: '+KSh 48K', sub: 'average monthly increase per business',   color: 'text-purple-400'   },
+  { label: 'Revenue Growth',    value: '+KSh 48K', sub: 'average monthly increase per business',   color: 'text-terracotta-light' },
 ]
 
 export function ForBusinessSection() {

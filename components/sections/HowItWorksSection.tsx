@@ -33,8 +33,8 @@ const HOW_IT_WORKS: Step[] = [
     title:       'Glow Up',
     description: "Arrive, get served, pay securely, and earn loyalty points. Leave a review to help the community.",
     icon:        Sparkles,
-    color:       'text-purple-400',
-    bg:          'bg-purple-600/10',
+    color:       'text-emerald-light',
+    bg:          'bg-emerald-brand/10',
   },
 ]
 
