@@ -46,7 +46,7 @@ const COUNTRIES = [
 export function FooterSection() {
   return (
     <footer className="py-14 px-4 relative overflow-hidden" style={{ borderTop: '1px solid rgba(166,75,42,0.25)', background: 'linear-gradient(180deg, var(--color-background) 0%, rgba(28,18,8,0.6) 100%)' }}>
-      <div className="absolute inset-0 pattern-weave opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 pattern-weave pointer-events-none" aria-hidden="true" />
       <div className="max-w-6xl mx-auto relative">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
 

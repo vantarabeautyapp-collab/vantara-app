@@ -40,7 +40,7 @@ const TESTIMONIALS: Testimonial[] = [
 export function TestimonialsSection() {
   return (
     <section className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="testimonials-heading">
-      <div className="absolute inset-0 pattern-maasai opacity-50 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 pattern-maasai pointer-events-none" aria-hidden="true" />
       <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-12">
           <div className="inline-block text-xs font-semibold tracking-wider uppercase text-gold mb-3 px-3 py-1 rounded-full border border-gold/20 bg-gold/5">

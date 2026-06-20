@@ -420,46 +420,53 @@ body {
   /* ══════════════════════════════════════════════════════════════════════
      AFRICAN GEOMETRIC PATTERN SYSTEM
      Inspired by Kente, Maasai, Ndebele, Adinkra
-     All patterns use 6–9% opacity — extremely subtle, never distracting
+     Patterns use 25–40% fill opacity so they read clearly on dark bg
      ══════════════════════════════════════════════════════════════════════ */
 
   /* Kente-inspired: offset geometric blocks */
   .pattern-kente {
     background-image:
-      url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='24' height='24' fill='%23D4A24C' fill-opacity='0.07'/%3E%3Crect x='24' y='24' width='24' height='24' fill='%23D4A24C' fill-opacity='0.07'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23A64B2A' fill-opacity='0.06'/%3E%3Crect x='32' y='32' width='8' height='8' fill='%23A64B2A' fill-opacity='0.06'/%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='24' height='24' fill='%23D4A24C' fill-opacity='0.28'/%3E%3Crect x='24' y='24' width='24' height='24' fill='%23D4A24C' fill-opacity='0.28'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23A64B2A' fill-opacity='0.35'/%3E%3Crect x='32' y='32' width='8' height='8' fill='%23A64B2A' fill-opacity='0.35'/%3E%3Crect x='0' y='24' width='24' height='2' fill='%23A64B2A' fill-opacity='0.20'/%3E%3Crect x='24' y='0' width='2' height='24' fill='%23A64B2A' fill-opacity='0.20'/%3E%3C/svg%3E");
     background-size: 48px 48px;
   }
 
-  /* Maasai beadwork: fine dot grid */
+  /* Maasai beadwork: bold dot grid */
   .pattern-maasai {
     background-image:
-      radial-gradient(circle, rgba(166,75,42,0.09) 1.2px, transparent 1.2px);
-    background-size: 18px 18px;
+      radial-gradient(circle, rgba(166,75,42,0.35) 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
   }
 
   /* Adinkra-inspired: concentric circles with cross — wisdom / unity */
   .pattern-adinkra {
     background-image:
-      url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23A64B2A' stroke-opacity='0.08'%3E%3Ccircle cx='36' cy='36' r='26' stroke-width='0.8'/%3E%3Ccircle cx='36' cy='36' r='16' stroke-width='0.8'/%3E%3Ccircle cx='36' cy='36' r='6' stroke-width='0.8'/%3E%3Cline x1='10' y1='36' x2='62' y2='36' stroke-width='0.6'/%3E%3Cline x1='36' y1='10' x2='36' y2='62' stroke-width='0.6'/%3E%3C/g%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23A64B2A' stroke-opacity='0.32'%3E%3Ccircle cx='36' cy='36' r='26' stroke-width='1.2'/%3E%3Ccircle cx='36' cy='36' r='16' stroke-width='1.2'/%3E%3Ccircle cx='36' cy='36' r='6' stroke-width='1.2'/%3E%3Cline x1='10' y1='36' x2='62' y2='36' stroke-width='1'/%3E%3Cline x1='36' y1='10' x2='36' y2='62' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 72px 72px;
   }
 
   /* Ndebele-inspired: stepped diamond geometry */
   .pattern-ndebele {
     background-image:
-      url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C56A3D' stroke-opacity='0.08' stroke-width='0.7'%3E%3Cpolygon points='20,3 37,12 37,28 20,37 3,28 3,12'/%3E%3Cpolygon points='20,10 30,15 30,25 20,30 10,25 10,15'/%3E%3C/g%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C56A3D' stroke-opacity='0.32' stroke-width='1.2'%3E%3Cpolygon points='20,3 37,12 37,28 20,37 3,28 3,12'/%3E%3Cpolygon points='20,10 30,15 30,25 20,30 10,25 10,15'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 40px 40px;
   }
 
-  /* Diagonal fine stripe — subtle woven texture */
+  /* Diagonal woven stripe */
   .pattern-weave {
     background-image:
       repeating-linear-gradient(
         45deg,
         transparent,
-        transparent 6px,
-        rgba(166,75,42,0.05) 6px,
-        rgba(166,75,42,0.05) 7px
+        transparent 5px,
+        rgba(166,75,42,0.18) 5px,
+        rgba(166,75,42,0.18) 6px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 5px,
+        rgba(212,162,76,0.10) 5px,
+        rgba(212,162,76,0.10) 6px
       );
   }
 
@@ -473,7 +480,7 @@ body {
     inset: 0;
     pointer-events: none;
     background-image:
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4A24C' stroke-opacity='0.05' stroke-width='0.5'%3E%3Crect x='5' y='5' width='50' height='50'/%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Cline x1='5' y1='5' x2='55' y2='55'/%3E%3Cline x1='55' y1='5' x2='5' y2='55'/%3E%3C/g%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4A24C' stroke-opacity='0.22' stroke-width='0.8'%3E%3Crect x='5' y='5' width='50' height='50'/%3E%3Crect x='15' y='15' width='30' height='30'/%3E%3Cline x1='5' y1='5' x2='55' y2='55'/%3E%3Cline x1='55' y1='5' x2='5' y2='55'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 60px 60px;
     z-index: 0;
   }

@@ -41,7 +41,7 @@ const HOW_IT_WORKS: Step[] = [
 export function HowItWorksSection() {
   return (
     <section className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="how-heading">
-      <div className="absolute inset-0 pattern-maasai opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 pattern-maasai pointer-events-none" aria-hidden="true" />
       <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-14">
           <div className="inline-block text-xs font-semibold tracking-wider uppercase text-gold mb-3 px-3 py-1 rounded-full border border-gold/20 bg-gold/5">

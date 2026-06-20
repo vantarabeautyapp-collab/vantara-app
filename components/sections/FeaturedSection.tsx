@@ -10,7 +10,7 @@ export function FeaturedSection() {
 
   return (
     <section className="py-20 px-4 border-t border-border relative overflow-hidden" aria-labelledby="featured-heading">
-      <div className="absolute inset-0 pattern-ndebele opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 pattern-ndebele pointer-events-none" aria-hidden="true" />
       <div className="max-w-6xl mx-auto relative">
         <div className="flex items-center justify-between mb-10">
           <div>

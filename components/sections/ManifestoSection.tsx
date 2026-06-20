@@ -59,7 +59,7 @@ export function ManifestoSection() {
       {/* Background — kente geometric overlay + warm earth glows */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {/* Kente pattern — section identity */}
-        <div className="absolute inset-0 pattern-kente opacity-60" />
+        <div className="absolute inset-0 pattern-kente" />
         {/* Top divider line — warm gold */}
         <div
           className="absolute top-0 left-0 right-0 h-px"

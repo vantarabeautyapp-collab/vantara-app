@@ -41,8 +41,8 @@ export function HeroSection() {
     >
       {/* Background glows — sunset / earth atmosphere */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Adinkra pattern overlay — extremely subtle */}
-        <div className="absolute inset-0 pattern-adinkra opacity-40" />
+        {/* Adinkra pattern overlay */}
+        <div className="absolute inset-0 pattern-adinkra" />
         {/* Primary warm glow — terracotta sunrise */}
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] rounded-full opacity-15"
