@@ -83,15 +83,15 @@ export function CategoriesSection() {
       <div className="max-w-6xl mx-auto relative">
 
         <div className="text-center mb-14">
-          <p className="text-xs font-semibold tracking-widest uppercase text-terracotta mb-3">Services</p>
+          <p className="text-xs font-semibold tracking-widest uppercase text-terracotta mb-3">Curated Services</p>
           <h2
             id="categories-heading"
             className="font-playfair text-3xl sm:text-4xl font-bold text-text-primary mb-4"
           >
-            Every Beauty Service, One Platform
+            Every Art Form, One Platform
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto leading-relaxed">
-            From quick fades to bridal transformations — discover professionals across every category.
+            From razor-sharp fades to luminous bridal looks — every discipline of African beauty, curated and at your fingertips.
           </p>
         </div>
 

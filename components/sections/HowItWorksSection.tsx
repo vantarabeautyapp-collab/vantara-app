@@ -14,8 +14,8 @@ interface Step {
 const HOW_IT_WORKS: Step[] = [
   {
     step:        '01',
-    title:       'Discover',
-    description: 'Search by service, location, or professional name. Filter by rating, price, and availability.',
+    title:       'Discover Your Artisan',
+    description: 'Search by service, city, or professional. Filter by ratings, specialties, and real-time availability — then read verified reviews from real clients.',
     icon:        Search,
     color:       'text-gold',
     bg:          'bg-gold/10',
@@ -23,15 +23,15 @@ const HOW_IT_WORKS: Step[] = [
   {
     step:        '02',
     title:       'Book in Seconds',
-    description: 'View real-time availability, choose your stylist, and confirm your booking in under 60 seconds.',
+    description: 'See live slots, pick your preferred stylist, and confirm your appointment in under 60 seconds. M-Pesa, card, or cash — your choice.',
     icon:        Clock,
-    color:       'text-emerald-light',
-    bg:          'bg-emerald-brand/10',
+    color:       'text-terracotta-light',
+    bg:          'bg-terracotta/10',
   },
   {
     step:        '03',
-    title:       'Glow Up',
-    description: "Arrive, get served, pay securely, and earn loyalty points. Leave a review to help the community.",
+    title:       'Arrive & Glow',
+    description: 'Show up, experience the craft, pay securely. Every visit earns Beauty Points toward exclusive rewards and VIP access.',
     icon:        Sparkles,
     color:       'text-emerald-light',
     bg:          'bg-emerald-brand/10',
@@ -45,13 +45,15 @@ export function HowItWorksSection() {
       <div className="max-w-5xl mx-auto relative">
         <div className="text-center mb-14">
           <div className="inline-block text-xs font-semibold tracking-wider uppercase text-gold mb-3 px-3 py-1 rounded-full border border-gold/20 bg-gold/5">
-            Simple as 1-2-3
+            How It Works
           </div>
           <h2
             id="how-heading"
             className="font-playfair text-3xl sm:text-4xl font-bold text-text-primary"
           >
-            Book in Under 60 Seconds
+            From Discovery to Glow —
+            <br />
+            <span className="gold-text">In Three Steps</span>
           </h2>
         </div>
 

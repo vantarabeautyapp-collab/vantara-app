@@ -33,7 +33,7 @@ export default function SalonProfilePage({ params }: { params: { id: string } })
   ]
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] pb-32">
+    <div className="min-h-screen pb-32" style={{ background: 'var(--color-background)' }}>
       {/* Hero Image */}
       <div className="relative h-72 sm:h-80 overflow-hidden">
         <Image src={business.coverImage} alt={business.name} fill className="object-cover" priority />
@@ -186,14 +186,29 @@ export default function SalonProfilePage({ params }: { params: { id: string } })
         )}
 
         {activeTab === 'gallery' && (
-          <div className="grid grid-cols-2 gap-2 animate-fade-up">
-            {business.galleryImages.map((img, i) => (
-              <div key={i} className="relative aspect-square rounded-xl overflow-hidden">
-                <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-cover" />
+          <div className="animate-fade-up">
+            {business.galleryImages.length === 0 ? (
+              <div className="text-center py-12 glass-card rounded-2xl border border-border">
+                <p className="text-text-muted text-sm">No gallery photos yet.</p>
+                <p className="text-text-muted text-xs mt-1">The business hasn&apos;t uploaded photos.</p>
               </div>
-            ))}
-            {business.galleryImages.length === 0 && (
-              <p className="text-text-muted text-sm col-span-2 text-center py-8">No gallery photos yet</p>
+            ) : (
+              <div className="grid grid-cols-2 gap-2">
+                {business.galleryImages.map((img, i) => (
+                  <div
+                    key={i}
+                    className={`relative overflow-hidden rounded-xl ${i === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${business.name} — photo ${i + 1}`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes={i === 0 ? '100vw' : '50vw'}
+                    />
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )}
@@ -289,7 +304,7 @@ export default function SalonProfilePage({ params }: { params: { id: string } })
       </div>
 
       {/* Sticky Book Button */}
-      <div className="fixed bottom-16 left-0 right-0 px-4 py-3 bg-gradient-to-t from-[#0A0A0A] to-transparent">
+      <div className="fixed bottom-16 left-0 right-0 px-4 py-3" style={{ background: 'linear-gradient(to top, var(--color-background) 60%, transparent)' }}>
         <Link
           href={`/booking?business=${business.id}`}
           className="w-full btn-gold rounded-xl py-4 text-base font-bold flex items-center justify-center gap-2"

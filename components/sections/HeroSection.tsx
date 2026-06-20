@@ -1,17 +1,18 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Search, MapPin, ChevronDown, Scissors, Sparkles, Star, Palette, Crown, Flower2, Eye, Heart } from 'lucide-react'
 import { CITIES } from '@/lib/mock-data'
 
 const SERVICE_IMAGES = [
-  { id: 'barbershop', label: 'Barbershops',    Icon: Scissors, bg: 'linear-gradient(135deg,#A64B2A 0%,#7A3520 100%)', pattern: 'pattern-kente',   glow: 'rgba(166,75,42,0.5)'  },
-  { id: 'salon',      label: 'Hair Salons',    Icon: Sparkles, bg: 'linear-gradient(135deg,#D4A24C 0%,#9A7030 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.5)' },
-  { id: 'nails',      label: 'Nail Studios',   Icon: Star,     bg: 'linear-gradient(135deg,#E07A2D 0%,#B05820 100%)', pattern: 'pattern-maasai',  glow: 'rgba(224,122,45,0.5)' },
-  { id: 'makeup',     label: 'Makeup Artists', Icon: Palette,  bg: 'linear-gradient(135deg,#C56A3D 0%,#A64B2A 100%)', pattern: 'pattern-ndebele', glow: 'rgba(197,106,61,0.5)' },
-  { id: 'braiding',   label: 'Braiding',       Icon: Crown,    bg: 'linear-gradient(135deg,#556B2F 0%,#3A4A20 100%)', pattern: 'pattern-kente',   glow: 'rgba(85,107,47,0.5)'  },
-  { id: 'skincare',   label: 'Skincare',       Icon: Flower2,  bg: 'linear-gradient(135deg,#D4A24C 0%,#A64B2A 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.4)' },
+  { id: 'barbershop', label: 'Barbershops',    Icon: Scissors, bg: 'linear-gradient(135deg,#A64B2A 0%,#7A3520 100%)', pattern: 'pattern-kente',   glow: 'rgba(166,75,42,0.5)',  photo: '/images/stitch/barber.jpg'   },
+  { id: 'salon',      label: 'Hair Salons',    Icon: Sparkles, bg: 'linear-gradient(135deg,#D4A24C 0%,#9A7030 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.5)', photo: null                          },
+  { id: 'nails',      label: 'Nail Studios',   Icon: Star,     bg: 'linear-gradient(135deg,#E07A2D 0%,#B05820 100%)', pattern: 'pattern-maasai',  glow: 'rgba(224,122,45,0.5)', photo: null                          },
+  { id: 'makeup',     label: 'Makeup Artists', Icon: Palette,  bg: 'linear-gradient(135deg,#C56A3D 0%,#A64B2A 100%)', pattern: 'pattern-ndebele', glow: 'rgba(197,106,61,0.5)', photo: null                          },
+  { id: 'braiding',   label: 'Braiding',       Icon: Crown,    bg: 'linear-gradient(135deg,#556B2F 0%,#3A4A20 100%)', pattern: 'pattern-kente',   glow: 'rgba(85,107,47,0.5)',  photo: '/images/stitch/braiding.jpg' },
+  { id: 'skincare',   label: 'Skincare',       Icon: Flower2,  bg: 'linear-gradient(135deg,#D4A24C 0%,#A64B2A 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.4)', photo: '/images/stitch/skincare.jpg' },
 ]
 
 const STATS = [
@@ -90,16 +91,16 @@ export function HeroSection() {
       {/* Headline */}
       <div className="text-center max-w-4xl mx-auto animate-fade-up delay-100">
         <h1 className="font-playfair text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-          <span className="gold-text">Discover. Book.</span>
+          <span className="text-text-primary">Africa&apos;s Beauty.</span>
           <br />
-          <span className="text-text-primary">Glow.</span>
+          <span className="gold-text">Elevated.</span>
         </h1>
         <p className="text-text-secondary text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed text-balance">
-          The marketplace that connects Africa&apos;s finest beauty and grooming professionals
-          with the people who&apos;ve been searching for them.
+          The continent&apos;s premier platform for discovering and booking Africa&apos;s
+          finest barbers, stylists, and beauty artisans — all in one place.
         </p>
         <p className="text-text-muted text-sm max-w-xl mx-auto mt-3 leading-relaxed">
-          Every booking earns rewards. Every professional gets discovered. Every visit builds community.
+          Verified professionals. Real-time availability. Loyalty rewards that actually mean something.
         </p>
       </div>
 
@@ -167,14 +168,29 @@ export function HeroSection() {
               className="group relative shrink-0 w-[110px] sm:w-auto h-[110px] rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
               style={{ background: svc.bg }}
             >
+              {/* Real photo background where available */}
+              {svc.photo && (
+                <Image
+                  src={svc.photo}
+                  alt={svc.label}
+                  fill
+                  className="object-cover opacity-50 group-hover:opacity-65 transition-opacity duration-300"
+                  sizes="110px"
+                />
+              )}
               {/* Pattern overlay */}
-              <div className={`absolute inset-0 ${svc.pattern} opacity-30`} aria-hidden="true" />
+              {!svc.photo && <div className={`absolute inset-0 ${svc.pattern} opacity-30`} aria-hidden="true" />}
+              {/* Dark gradient for text legibility */}
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(160deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 100%)' }}
+              />
               {/* Glow on hover */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: `radial-gradient(circle at 50% 50%, ${svc.glow} 0%, transparent 70%)` }}
               />
-              {/* Icon */}
+              {/* Icon + Label */}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
                 <svc.Icon size={26} className="text-white opacity-90" aria-hidden="true" />
                 <span className="text-white text-[10px] font-semibold tracking-wide text-center px-1 leading-tight opacity-90">

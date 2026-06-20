@@ -105,13 +105,14 @@ export function ManifestoSection() {
           </div>
 
           <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-            Millions of talented barbers, stylists, makeup artists, nail technicians, and beauty professionals
-            transform lives across Africa every single day. Most remain invisible to the customers
-            who need them most.
+            Africa is home to some of the most skilled barbers, braiders, makeup artists, and skincare
+            specialists in the world. Their craft is passed down through generations, refined in vibrant
+            cities from Lagos to Nairobi — yet most remained hidden from the clients who needed them.
           </p>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed mt-4">
-            Vantara was created to bridge that gap — and in doing so, to lead the digital transformation
-            of Africa&apos;s beauty and grooming industry.
+            Vantara exists to change that. We built the platform Africa&apos;s beauty industry
+            deserves — one that honours the artisan, empowers the client, and puts African excellence
+            at the centre of every experience.
           </p>
 
           <div className="mt-8">

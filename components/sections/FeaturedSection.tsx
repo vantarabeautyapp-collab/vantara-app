@@ -14,13 +14,14 @@ export function FeaturedSection() {
       <div className="max-w-6xl mx-auto relative">
         <div className="flex items-center justify-between mb-10">
           <div>
+            <p className="text-xs font-semibold tracking-widest uppercase text-terracotta mb-2">Artisans of the Month</p>
             <h2
               id="featured-heading"
               className="font-playfair text-3xl sm:text-4xl font-bold text-text-primary"
             >
-              Top Rated Near You
+              Masters of Their Craft
             </h2>
-            <p className="text-text-secondary mt-1">Nairobi&apos;s most loved beauty destinations</p>
+            <p className="text-text-secondary mt-1">Nairobi&apos;s highest-rated beauty destinations, verified by real clients</p>
           </div>
           <Link
             href="/search"
