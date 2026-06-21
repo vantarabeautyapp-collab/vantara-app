@@ -215,7 +215,7 @@ export function HowItWorksSection() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Crossfade photo */}
-            <AnimatePresence mode="crossfade">
+            <AnimatePresence mode="wait">
               <motion.div
                 key={active}
                 className="absolute inset-0"
