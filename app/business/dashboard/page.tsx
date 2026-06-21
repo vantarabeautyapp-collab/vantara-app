@@ -230,10 +230,10 @@ export default function BusinessDashboardPage() {
           {/* Quick actions */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { label: 'Add New Service', href: '/business/services/new', icon: Scissors, color: 'text-gold', bg: 'bg-gold/10' },
+              { label: 'Add New Service', href: '/business/services', icon: Scissors, color: 'text-gold', bg: 'bg-gold/10' },
               { label: 'Manage Staff', href: '/business/staff', icon: Users, color: 'text-emerald-light', bg: 'bg-emerald-brand/10' },
               { label: 'View Analytics', href: '/business/analytics', icon: BarChart3, color: 'text-blue-400', bg: 'bg-blue-500/10' },
-              { label: 'Create Promotion', href: '/business/promotions/new', icon: Crown, color: 'text-purple-400', bg: 'bg-purple-500/10' },
+              { label: 'Create Promotion', href: '/business/promotions', icon: Crown, color: 'text-purple-400', bg: 'bg-purple-500/10' },
             ].map((action, i) => (
               <Link
                 key={i}

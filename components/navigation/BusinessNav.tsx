@@ -4,15 +4,16 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Calendar, Users, BarChart3,
-  Tag, Settings, LogOut
+  Tag, Settings, LogOut, Scissors
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Logo from '@/components/Logo'
 
 const navItems = [
   { href: '/business/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/business/bookings', label: 'Bookings', icon: Calendar },
-  { href: '/business/staff', label: 'Staff', icon: Users },
+  { href: '/business/bookings',  label: 'Bookings',  icon: Calendar  },
+  { href: '/business/services',  label: 'Services',  icon: Scissors  },
+  { href: '/business/staff',     label: 'Staff',     icon: Users     },
   { href: '/business/analytics', label: 'Analytics', icon: BarChart3 },
   { href: '/business/promotions', label: 'Promotions', icon: Tag },
   { href: '/business/settings', label: 'Settings', icon: Settings },
