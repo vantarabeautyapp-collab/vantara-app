@@ -3,28 +3,58 @@ import Link from 'next/link'
 
 const GALLERY = [
   {
-    src:     '/images/stitch/barber.jpg',
-    alt:     'Master barber at work in a Lagos barbershop',
-    label:   'The Cut',
-    sub:     'Barbershops',
-    href:    '/search?category=barbershop',
-    accent:  '#A64B2A',
+    src:    '/images/stitch/barber.jpg',
+    alt:    'Master barber at work in a Lagos barbershop',
+    label:  'The Cut',
+    sub:    'Barbershops',
+    href:   '/search?category=barbershop',
+    accent: '#A64B2A',
+    wide:   true,
   },
   {
-    src:     '/images/stitch/braiding.jpg',
-    alt:     'Stylist braiding hair in an Accra salon',
-    label:   'The Braid',
-    sub:     'Hair & Braiding',
-    href:    '/search?category=braiding',
-    accent:  '#556B2F',
+    src:    '/images/stitch/nails.jpg',
+    alt:    'Intricate African nail art in a Lagos nail studio',
+    label:  'The Detail',
+    sub:    'Nail Studios',
+    href:   '/search?category=nails',
+    accent: '#E07A2D',
+    wide:   false,
   },
   {
-    src:     '/images/stitch/skincare.jpg',
-    alt:     'Skincare treatment in a Nairobi luxury spa',
-    label:   'The Ritual',
-    sub:     'Skincare & Wellness',
-    href:    '/search?category=skincare',
-    accent:  '#D4A24C',
+    src:    '/images/stitch/makeup.jpg',
+    alt:    'Makeup artist creating an editorial look in Nairobi',
+    label:  'The Canvas',
+    sub:    'Makeup Artists',
+    href:   '/search?category=makeup',
+    accent: '#D4A24C',
+    wide:   false,
+  },
+  {
+    src:    '/images/stitch/locs.jpg',
+    alt:    'Perfectly styled natural locs in an Accra salon',
+    label:  'The Crown',
+    sub:    'Locs & Natural Hair',
+    href:   '/search?category=locs',
+    accent: '#556B2F',
+    wide:   false,
+  },
+  {
+    src:    '/images/stitch/braiding.jpg',
+    alt:    'Stylist braiding hair in an Accra salon',
+    label:  'The Braid',
+    sub:    'Hair & Braiding',
+    href:   '/search?category=braiding',
+    accent: '#8B6914',
+    wide:   false,
+  },
+  {
+    src:    '/images/stitch/skincare.jpg',
+    alt:    'Skincare treatment in a Nairobi luxury spa',
+    label:  'The Ritual',
+    sub:    'Skincare & Wellness',
+    href:   '/search?category=skincare',
+    accent: '#C56A3D',
+    wide:   true,
   },
 ]
 
@@ -43,13 +73,13 @@ export function GallerySection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 auto-rows-[220px]">
           {GALLERY.map(item => (
             <Link
               key={item.href}
               href={item.href}
               aria-label={`Explore ${item.sub}`}
-              className="group relative h-80 sm:h-96 rounded-3xl overflow-hidden block"
+              className={`group relative rounded-3xl overflow-hidden block ${item.wide ? 'col-span-2 row-span-1' : 'col-span-1 row-span-1'}`}
             >
               <Image
                 src={item.src}

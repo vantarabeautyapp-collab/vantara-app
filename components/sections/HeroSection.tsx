@@ -8,9 +8,9 @@ import { CITIES } from '@/lib/mock-data'
 
 const SERVICE_IMAGES = [
   { id: 'barbershop', label: 'Barbershops',    Icon: Scissors, bg: 'linear-gradient(135deg,#A64B2A 0%,#7A3520 100%)', pattern: 'pattern-kente',   glow: 'rgba(166,75,42,0.5)',  photo: '/images/stitch/barber.jpg'   },
-  { id: 'salon',      label: 'Hair Salons',    Icon: Sparkles, bg: 'linear-gradient(135deg,#D4A24C 0%,#9A7030 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.5)', photo: null                          },
-  { id: 'nails',      label: 'Nail Studios',   Icon: Star,     bg: 'linear-gradient(135deg,#E07A2D 0%,#B05820 100%)', pattern: 'pattern-maasai',  glow: 'rgba(224,122,45,0.5)', photo: null                          },
-  { id: 'makeup',     label: 'Makeup Artists', Icon: Palette,  bg: 'linear-gradient(135deg,#C56A3D 0%,#A64B2A 100%)', pattern: 'pattern-ndebele', glow: 'rgba(197,106,61,0.5)', photo: null                          },
+  { id: 'salon',      label: 'Hair Salons',    Icon: Sparkles, bg: 'linear-gradient(135deg,#D4A24C 0%,#9A7030 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.5)', photo: '/images/stitch/locs.jpg'     },
+  { id: 'nails',      label: 'Nail Studios',   Icon: Star,     bg: 'linear-gradient(135deg,#E07A2D 0%,#B05820 100%)', pattern: 'pattern-maasai',  glow: 'rgba(224,122,45,0.5)', photo: '/images/stitch/nails.jpg'    },
+  { id: 'makeup',     label: 'Makeup Artists', Icon: Palette,  bg: 'linear-gradient(135deg,#C56A3D 0%,#A64B2A 100%)', pattern: 'pattern-ndebele', glow: 'rgba(197,106,61,0.5)', photo: '/images/stitch/makeup.jpg'   },
   { id: 'braiding',   label: 'Braiding',       Icon: Crown,    bg: 'linear-gradient(135deg,#556B2F 0%,#3A4A20 100%)', pattern: 'pattern-kente',   glow: 'rgba(85,107,47,0.5)',  photo: '/images/stitch/braiding.jpg' },
   { id: 'skincare',   label: 'Skincare',       Icon: Flower2,  bg: 'linear-gradient(135deg,#D4A24C 0%,#A64B2A 100%)', pattern: 'pattern-adinkra', glow: 'rgba(212,162,76,0.4)', photo: '/images/stitch/skincare.jpg' },
 ]
